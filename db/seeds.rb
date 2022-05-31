@@ -33,12 +33,28 @@ Carnitas = Dish.create(name: 'Tacos de Carnitas', description: 'Marinated roaste
 Cochinita = Dish.create(name: 'Tacos e Cochinita Pibil', description: 'Pork slowly roasted in a banana leaf with achiote,lime and orange juice topped with red pickled onion.', price: 10.90, category: 'Taco', restaurant: el_taco)
 Salsa = Dish.create(name: 'Tacos com Pollo em Salsa Verde', description: 'Braised chicken stewed and cooked with salsa verde.', price: 11.90, category: 'Taco', restaurant: el_taco)
 Assada = Dish.create(name: 'Tacos com Carne Assada', description: 'Grilled vazia with grilled onion served with guacamole ,cilantro onion & lime', price: 14.90, category: 'Taco', restaurant: el_taco)
-# Dish.create(name: '', description: '', price: '', category: '', restaurant: el_taco)
-# Dish.create(name: '', description: '', price: '', category: '', restaurant: el_taco)
-# Dish.create(name: '', description: '', price: '', category: '', restaurant: el_taco)
-# Dish.create(name: '', description: '', price: '', category: '', restaurant: el_taco)
-# Dish.create(name: '', description: '', price: '', category: '', restaurant: el_taco)
-# Dish.create(name: '', description: '', price: '', category: '', restaurant: el_taco)
+Dish.create(name: 'Tacos de Carne Assada com Salsa Seca', description: 'Thick slice of tenderloin grilled and served with grind mixture of fried garlic & chile arbol.', price: 10.90, category: 'Taco', restaurant: el_taco)
+Dish.create(name: 'Fajita', description: 'Grilled meat, bell pepper served as a taco on corn tortilla with lime, avocado and sour crème.', price: 10.90, category: 'Taco', restaurant: el_taco)
+
+# vegetarian specials
+Dish.create(name: 'Feijão Preto', description: 'Refried black beans serves with fresh queso and salsa mayonnaise chipotle.', price: 9.90, category: 'Vegetarian Special', restaurant: el_taco)
+Dish.create(name: 'Hongos al Ajillo', description: 'Mushrooms with chilli guagillo flavoured with fried garlic.', price: 10.00, category: 'Vegetarian Special', restaurant: el_taco)
+
+# burritos
+Dish.create(name: 'Burritos com Frango Assado', description: 'Grilled chicken wrapped in traditional mexican handmade tortilla with refried beans and queso.', price: 10.50, category: 'Burrito', restaurant: el_taco)
+Dish.create(name: 'Burritos com Vazia', description: 'Grilled vazia de novilho wrapped in traditional Mexican homemade tortilla with refried beans and queso.', price: 11.90, category: 'Burrito', restaurant: el_taco)
+
+# drinks
+Dish.create(name: 'Corona Extra', description: 'Mexican beer 4.5% vol.', price: 3.85, category: 'Drink', restaurant: el_taco)
+Dish.create(name: 'Modelo Especial', description: 'Mexican beer alc 4.5 % , 35.5 cl.', price: 4.10, category: 'Drink', restaurant: el_taco)
+Dish.create(name: 'Somersby', description: 'Apple sparkling Cider alc. 4.5 % vol. 33cl.', price: 3.85, category: 'Drink', restaurant: el_taco)
+Dish.create(name: 'Pacifico Clara', description: 'Mexican beer. alc. 4.5 % vol..35.5 cl.', price: 4.10, category: 'Drink', restaurant: el_taco)
+Dish.create(name: 'Desperados', description: 'Beer flavoured with Tequla alc. 5.9 % vol 33cl.', price: 4.10, category: 'Drink', restaurant: el_taco)
+Dish.create(name: 'Sagres', description: 'Portuguese beer with alc 5.0 % vol 33cl.', price: 3.00, category: 'Drink', restaurant: el_taco)
+
+# desserts
+Dish.create(name: 'Churros', description: 'Sweet Mexican dessert with brown sugar and chocalate sauce', price: 3.90, category: 'desserts', restaurant: el_taco)
+
 puts "#{Dish.count} #{Dish.name} created successfully"
 
 # tab_params = {
