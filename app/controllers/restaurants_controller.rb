@@ -2,6 +2,12 @@ class RestaurantsController < ApplicationController
 
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :publish]
 
+  # GET /restaurants
+
+  def index
+    @restaurants = Restaurant.all
+  end
+
   # GET /restaurants/1
   def show
   end
