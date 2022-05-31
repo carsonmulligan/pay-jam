@@ -6,16 +6,18 @@
 </div>
 </div>
 
-<div class="container">
-      <% @tabs.each do |tab| %>
-    <div class="cards">
-         <div class="card-category">
-              <ul>
-                <li><%= tab.table_number %></li>
-                <li><%= tab.status %></li>
-                <li><%= link_to 'Show', tab_path(tab) %></li>
-              </ul>
-            <% end %>
-         </div>
+<div class="cards-container">
+       <div class="row">
+           <div class="cards">
+                <div class="col-6">
+                    <% @tabs.each do |tab| %>
+                   <div class="card">
+                        <%= tab.table_number %>
+                        <%= tab.status %>
+                        <%= link_to 'Show', tab_path(tab) %>
+                     <% end %>
+                   </div>
+              </div>
+          </div>
      </div>
 </div>

@@ -1,26 +1,33 @@
+.cards-container .cards {
+  flex-grow: 1;
+  padding: 16px;
+}
+
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
 }
 
 
-.card-category {
-  background-color: bisque;
-  background-size: cover;
-  background-position: center;
-  height: 180px;
+.cards-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: rgb(161, 114, 114);
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.card {
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 22px;
+  color: white;
+  font-weight: bolder;
+  text-shadow: 0 0 10px rgb(0 0 0 / 70%);
+}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
