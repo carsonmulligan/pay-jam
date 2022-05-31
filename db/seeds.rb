@@ -1,4 +1,3 @@
-require "byebug"
 TabDish.destroy_all
 Dish.destroy_all
 Tab.destroy_all
