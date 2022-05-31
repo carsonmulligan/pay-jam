@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'tab_dishes/index'
+  get 'tab_dishes/show'
+  get 'tab_dishes/new'
+  get 'tab_dishes/create'
+  get 'tab_dishes/edit'
+  get 'tab_dishes/update'
+  get 'tab_dishes/destroy'
   devise_for :users
   root to: 'pages#home'
 
