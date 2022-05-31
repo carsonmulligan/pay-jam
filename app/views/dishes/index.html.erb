@@ -18,8 +18,9 @@
   </div>
 </div>
 
-<div class="container">
+<div class="card">
       <% @dishes.each do |dish| %>
+      <div class="card-category">
         <ul>
           <li><%= dish.name %></td>
           <li><%= dish.price %></td>
@@ -27,4 +28,5 @@
           <li><%= link_to 'Show', dish_path(dish) %></td>
         </ul>
       <% end %>
+      </div>
 </div>
