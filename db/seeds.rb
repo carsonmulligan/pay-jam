@@ -47,8 +47,8 @@ puts "#{Dish.count} #{Dish.name} created successfully"
 #   restaurant: el_taco
 # }
 
-Tab.create!(total: 102, status: :open, table_number: 2, restaurant: el_taco)
 Tab.create!(total: 101, status: :open, table_number: 1, restaurant: el_taco)
+Tab.create!(total: 102, status: :open, table_number: 2, restaurant: el_taco)
 Tab.create!(total: 103, status: :open, table_number: 3, restaurant: el_taco)
 Tab.create!(total: 104, status: :open, table_number: 4, restaurant: el_taco)
 Tab.create!(total: 105, status: :open, table_number: 5, restaurant: el_taco)
