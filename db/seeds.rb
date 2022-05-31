@@ -5,7 +5,6 @@ Restaurant.destroy_all
 User.destroy_all
 Dish.destroy_all
 
-
 user1 = User.create(email: 'carlos.miguel@gmail.com', password: '121212')
 puts "#{User.count} #{User.name} created successfully"
 
@@ -43,12 +42,25 @@ Assada = Dish.create(name: 'Tacos com Carne Assada', description: 'Grilled vazia
 # Dish.create(name: '', description: '', price: '', category: '', restaurant: el_taco)
 puts "#{Dish.count} #{Dish.name} created successfully"
 
-Tab.create!(hash: 'ajgusHDkdhS7df%', total: 101, status: 0, table_number: 1, restaurant: el_taco)
-Tab.create!(hash: 'ajgusHDkd347df%', total: 102, status: 0, table_number: 2, restaurant: el_taco)
-Tab.create!(hash: 'ajgusHDk34S7df%', total: 103, status: 0, table_number: 3, restaurant: el_taco)
-Tab.create!(hash: 'ajgusHDk65S7df%', total: 104, status: 0, table_number: 4, restaurant: el_taco)
-Tab.create!(hash: 'ajgusHDkd877df%', total: 105, status: 0, table_number: 5, restaurant: el_taco)
-Tab.create!(hash: 'ajgusHD43hS7df%', total: 106, status: 0, table_number: 6, restaurant: el_taco)
-Tab.create!(hash: 'ajgusHDk76S7df%', total: 107, status: 0, table_number: 7, restaurant: el_taco)
+# tab_params = {
+#   hash: ,
+#   status: :open,
+#   restaurant: el_taco
+# }
+
+Tab.create!(total: 102, status: :open, table_number: 2, restaurant: el_taco)
+Tab.create!(total: 101, status: :open, table_number: 1, restaurant: el_taco)
+Tab.create!(total: 103, status: :open, table_number: 3, restaurant: el_taco)
+Tab.create!(total: 104, status: :open, table_number: 4, restaurant: el_taco)
+Tab.create!(total: 105, status: :open, table_number: 5, restaurant: el_taco)
+Tab.create!(total: 106, status: :open, table_number: 6, restaurant: el_taco)
+Tab.create!(total: 107, status: :open, table_number: 7, restaurant: el_taco)
 
 puts "#{Tab.count} #{Tab.name} created successfully"
+
+dishes = Dish.all
+tabs = Tab.all
+
+tabs.each do
+  TabDish.create(tab: tabs.sample, dish: dishes.sample)
+end

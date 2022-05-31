@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_30_162659) do
+ActiveRecord::Schema.define(version: 2022_05_31_134609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 2022_05_30_162659) do
   end
 
   create_table "tabs", force: :cascade do |t|
-    t.string "hash"
     t.integer "total"
     t.integer "status"
     t.integer "table_number"
