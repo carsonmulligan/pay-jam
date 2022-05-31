@@ -18,15 +18,13 @@
   </div>
 </div>
 
-<div class="card">
+<div class="card-product">
       <% @dishes.each do |dish| %>
-      <div class="card-category">
-        <ul>
-          <li><%= dish.name %></td>
-          <li><%= dish.price %></td>
-          <li><%= dish.description %></td>
-          <li><%= link_to 'Show', dish_path(dish) %></td>
-        </ul>
+      <div class="card-product-infos">
+          <h2><%= dish.name %></h2>
+          <p><%= dish.price %></p>
+          <p><%= dish.description %></p>
+          <p><%= link_to 'Show', dish_path(dish) %></p>
       <% end %>
       </div>
 </div>
