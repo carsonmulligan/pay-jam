@@ -1,2 +1,14 @@
 <h1>Tabs#show</h1>
 <p>Find me in app/views/tabs/show.html.erb</p>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <% @tab.dishes.each do |dish| %>
+    <tr>
+      <td><%= dish.name %></td>
+      <td> <%= dish.price %></td>
+      <td><%= link_to 'Tab', tab_path %></td>
+    </tr>
+    <% end %>
+  </div>
+</div>
