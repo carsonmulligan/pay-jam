@@ -7,7 +7,12 @@ class DishesController < ApplicationController
   end
 
   def index
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR description ILIKE :query"
+      @dishes = Dish.where(sql_query, query: "%#{params[:query]}%")
+    else
     @dishes = Dish.all
+    end
   end
 
   def show
