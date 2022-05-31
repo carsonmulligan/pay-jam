@@ -8,10 +8,14 @@
 
 <div class="container">
       <% @tabs.each do |tab| %>
-        <ul>
-          <li><%= tab.table_number %></li>
-          <li><%= tab.status %></li>
-          <li><%= link_to 'Show', tab_path(tab) %></li>
-        </ul>
-      <% end %>
+    <div class="cards">
+         <div class="card-category">
+              <ul>
+                <li><%= tab.table_number %></li>
+                <li><%= tab.status %></li>
+                <li><%= link_to 'Show', tab_path(tab) %></li>
+              </ul>
+            <% end %>
+         </div>
+     </div>
 </div>
