@@ -1,9 +1,9 @@
 require "byebug"
-
+TabDish.destroy_all
+Dish.destroy_all
 Tab.destroy_all
 Restaurant.destroy_all
 User.destroy_all
-Dish.destroy_all
 
 user1 = User.create(email: 'carlos.miguel@gmail.com', password: '121212')
 puts "#{User.count} #{User.name} created successfully"
