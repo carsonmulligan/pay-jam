@@ -1,11 +1,40 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+Restaurant.destroy_all
+Tab.destroy_all
+Dish.destroy_all
 
-Restaurant.create(name: 'El Taco Mexican & Cocktails Bar', address: 'Rua do Diaro de Noticias 23, Lisbon, Portugal')
+user1 = User.create(email: 'carlos.miguel@gmail.com', password: '121212')
+puts "#{User.count} #{User.name} created successfully"
+
+el_taco = Restaurant.create(name: 'El Taco Mexican & Cocktails Bar', address: 'Rua do Diaro de Noticias 23, Lisbon, Portugal', user: user1)
 puts "#{Restaurant.count} #{Restaurant.name} created successfully"
+
+Dish.create(name: 'Guacamole com Totopas', description: 'Traditional mexican snack with hamdmade guacamole.', price: '6.50 ', category: 'Starter', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+Dish.create(name: '', description: '', price: '', category: '', restaurant_id: el_taco)
+
+
+puts "#{Dish.count} #{Dish.name} created successfully"
+
+Tab.create()
+puts "#{Tab.count} #{Tab.name} created successfully"
