@@ -3,9 +3,13 @@ class TabDishesController < ApplicationController
   end
 
   def show
+    @dish = Dish.find(params[:id])
+    @tab = Tab.find(params[:id])
   end
 
   def new
+    @dish = Dish.find(params[:tab_id])
+    @tab = Tab.new
   end
 
   def create
