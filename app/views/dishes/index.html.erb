@@ -21,7 +21,7 @@
 <div class="card-product">
       <% @dishes.each do |dish| %>
       <div class="card-product-infos">
-            <%= dish.photo %>
+          <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
           <h2><%= dish.name %></h2>
           <p><%= dish.price %></p>
           <p><%= dish.description %></p>
