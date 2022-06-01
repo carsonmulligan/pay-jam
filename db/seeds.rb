@@ -51,7 +51,7 @@ gazpacho.photo.attach(io: file, filename: "#{gazpacho.name}.png", content_type: 
 # saladas
 mixed = Dish.create(name: 'Mixed Salad', description: 'Grilled sliced of roast beef mixed with fresh herbs, olives, cherry tomato, bell pepper garnished with red/white pickled onion.', price: 9.50, category: 'Saladas', restaurant: el_taco)
 file = URI.open('https://res.cloudinary.com/didajvmh1/image/upload/v1654093050/PRATOS/mixedsalad_adehtf.png')
-x.photo.attach(io: file, filename: "#{x.name}.png", content_type: 'image/png')
+mixed.photo.attach(io: file, filename: "#{mixed.name}.png", content_type: 'image/png')
 
 
 special = Dish.create(name: 'El Tacos Mexican Special Salad', description: 'Dicely chopped fresh avocado, pepper cherry tomato olives feta cheese and corn garnished with chipotle.', price: 9.50, category: 'Saladas', restaurant: el_taco)
