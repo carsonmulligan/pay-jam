@@ -21,6 +21,7 @@
 <div class="card-product">
       <% @dishes.each do |dish| %>
       <div class="card-product-infos">
+           <h2><%= dish.photo %></h2>
           <h2><%= dish.name %></h2>
           <p><%= dish.price %></p>
           <p><%= dish.description %></p>
