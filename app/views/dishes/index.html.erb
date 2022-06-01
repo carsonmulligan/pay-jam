@@ -25,6 +25,12 @@
           <p><%= dish.price %></p>
           <p><%= dish.description %></p>
           <p><%= link_to 'Show', dish_path(dish) %></p>
+
+
+          <%= simple_form_for(@tab, method: :post, url: tab_tab_dishes_path) do |f| %>
+              <%= f.input :dish_id, input_html: { value: dish.id }, as: :hidden %>
+              <%= f.submit "Add to Tab", class: 'btn btn-dark' %>
+          <% end %>
       <% end %>
       </div>
 </div>
