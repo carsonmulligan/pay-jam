@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'bills/index'
+  get 'bills/show'
+  get 'bills/create'
   devise_for :users
   root to: 'pages#home'
 
