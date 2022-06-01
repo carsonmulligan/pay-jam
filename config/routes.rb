@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   resources :tabs, only: [:index, :show] do
     resources :dishes, only: [:index]
     resources :tab_dishes, only: [:create]
+    resources :bills, only: [:create, :show, :index]
   end
   resources :tab_dishes, except: [:create]
-  resources :bill_dishes
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
