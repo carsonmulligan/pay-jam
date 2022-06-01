@@ -11,7 +11,10 @@ class BillsController < ApplicationController
     @tab = Tab.find(params[:tab_id])
     @bill = Bill.new(bill_params)
     if @bill.save
-      redirect_to
+      redirect_to tab_bill_path(@bill)
+    else
+      render '/tab_dishes/:id'
+    end
   end
 
   private
