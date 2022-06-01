@@ -45,12 +45,15 @@ Dish.create(name: 'Burritos com Frango Assado', description: 'Grilled chicken wr
 Dish.create(name: 'Burritos com Vazia', description: 'Grilled vazia de novilho wrapped in traditional Mexican homemade tortilla with refried beans and queso.', price: 11.90, category: 'Burritos', restaurant: el_taco)
 
 # drinks
-Dish.create(name: 'Corona Extra', description: 'Mexican beer 4.5% vol.', price: 3.85, category: 'Drink', restaurant: el_taco)
-Dish.create(name: 'Modelo Especial', description: 'Mexican beer alc 4.5 % , 35.5 cl.', price: 4.10, category: 'Drink', restaurant: el_taco)
-Dish.create(name: 'Somersby', description: 'Apple sparkling Cider alc. 4.5 % vol. 33cl.', price: 3.85, category: 'Drink', restaurant: el_taco)
-Dish.create(name: 'Pacifico Clara', description: 'Mexican beer. alc. 4.5 % vol..35.5 cl.', price: 4.10, category: 'Drink', restaurant: el_taco)
-Dish.create(name: 'Desperados', description: 'Beer flavoured with Tequla alc. 5.9 % vol 33cl.', price: 4.10, category: 'Drink', restaurant: el_taco)
-Dish.create(name: 'Sagres', description: 'Portuguese beer with alc 5.0 % vol 33cl.', price: 3.00, category: 'Drink', restaurant: el_taco)
+Dish.create(name: 'Corona Extra', description: 'Mexican beer 4.5% vol.', price: 3.85, category: 'Drinks', restaurant: el_taco)
+Dish.create(name: 'Modelo Especial', description: 'Mexican beer alc 4.5 % , 35.5 cl.', price: 4.10, category: 'Drinks', restaurant: el_taco)
+Dish.create(name: 'Somersby', description: 'Apple sparkling Cider alc. 4.5 % vol. 33cl.', price: 3.85, category: 'Drinks', restaurant: el_taco)
+Dish.create(name: 'Pacifico Clara', description: 'Mexican beer. alc. 4.5 % vol..35.5 cl.', price: 4.10, category: 'Drinks', restaurant: el_taco)
+Dish.create(name: 'Desperados', description: 'Beer flavoured with Tequla alc. 5.9 % vol 33cl.', price: 4.10, category: 'Drinks', restaurant: el_taco)
+Dish.create(name: 'Sagres', description: 'Portuguese beer with alc 5.0 % vol 33cl.', price: 3.00, category: 'Drinks', restaurant: el_taco)
+Dish.create(name: 'Caipirinha', description: ' Classic Brazilian drink.', price: 3.00, category: 'Drinks', restaurant: el_taco)
+Dish.create(name: 'Caipirinha com Maracuja', description: ' Classic Brazilian drink.', price: 3.00, category: 'Drinks', restaurant: el_taco)
+
 
 # desserts
 Dish.create(name: 'Churros', description: 'Sweet Mexican dessert with brown sugar and chocalate sauce', price: 3.90, category: 'desserts', restaurant: el_taco)
