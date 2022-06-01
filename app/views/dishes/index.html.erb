@@ -6,7 +6,7 @@
       <p>Find me in app/views/dishes/index.html.erb</p>
       <h2>List of Dishes</h2>
 
-      <%= form_tag dishes_path, method: :get do %>
+      <%= form_tag tab_dishes_path, method: :get do %>
       <%= text_field_tag :query,
            params[:query],
          class: "form-control",
