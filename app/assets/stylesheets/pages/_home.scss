@@ -24,6 +24,11 @@ a:hover {
 .intro {
   padding-right: 15px;
   padding-bottom: 15px;
+  border: 3px;
+  border-style:double;
+  padding: 65px;
+  padding-top: 80px ;
+  padding-bottom: 80px;
 }
 
 .CTA {
@@ -45,10 +50,12 @@ a:hover {
 }
 
 .splash p {
-  padding-top: 10px;
+  padding-top: 15px;
+  padding-bottom: 80px;
   color: #ffffff;
 }
 
 .btn{
-  background-color:rgba(74, 203, 55, 1) ;
+  background-color:rgba(234, 239, 240,1.0) ;
+  color: rgba(9,8,29,1.0);
 }
