@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2022_06_01_111404) do
 
   create_table "bills", force: :cascade do |t|
     t.decimal "total"
-    t.integer "status"
+    t.integer "status", default: 0
     t.bigint "tab_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
