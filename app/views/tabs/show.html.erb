@@ -7,8 +7,8 @@
     <tr>
       <td><%= dish.name %></td>
       <td> <%= dish.price %></td>
-      <td><%= link_to 'Tab', tab_path %></td>
     </tr>
     <% end %>
+    <%= link_to 'Add item', tab_dishes_path(@tab), class: "btn btn-dark" %>
   </div>
 </div>

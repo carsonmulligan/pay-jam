@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :restaurants
-  resources :dishes
-  resources :tabs, only: [:index, :show]
-  resources :tab_dishes
+  resources :dishes, except: [:index]
+  resources :tabs, only: [:index, :show] do
+    resources :dishes, only: [:index]
+    resources :tab_dishes, only: [:create]
+  end
+  resources :tab_dishes, except: [:create]
   resources :bill_dishes
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

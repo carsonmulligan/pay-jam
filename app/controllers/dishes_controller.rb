@@ -23,6 +23,8 @@ class DishesController < ApplicationController
     else
       @dishes = Dish.all
     end
+
+    @tab = Tab.find(params[:tab_id])
   end
 
   def show

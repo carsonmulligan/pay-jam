@@ -13,6 +13,14 @@ class TabDishesController < ApplicationController
   end
 
   def create
+    @tab_dish = TabDish.new(tab_dish_params)
+    @tab = Tab.find(params[:tab_id])
+    @tab_dish.tab = @tab
+    if @tab_dish.save
+      redirect_to tab_path(@tab), notice: 'Dish added successfully'
+    else
+      render '/tabs/:tab_id/dishes', notice: 'Sorry, homie'
+    end
   end
 
   def edit
@@ -22,5 +30,11 @@ class TabDishesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def tab_dish_params
+    params.require(:tab).permit(:dish_id)
   end
 end
