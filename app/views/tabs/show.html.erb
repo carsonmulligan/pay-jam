@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <% @tab.dishes.each do |dish| %>
-        <tr><%= dish.photo %></tr>
+      <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
       <td><%= dish.name %></td>
       <td> <%= dish.price %></td>
     </tr>
