@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :restaurants
-  resources :dishes, except: [:index]
+  resources :dishes
   resources :tabs, only: [:index, :show] do
     resources :dishes, only: [:index]
     resources :tab_dishes, only: [:create]
