@@ -1,13 +1,22 @@
-<h1>Tabs#show</h1>
-<p>Find me in app/views/tabs/show.html.erb</p>
-
 <div class="container">
+<h1 class="logo"> El Taco </h1>
+  <div class="row">
+        <h1 class="tableclass"> Table <%= @tab.table_number  %></h1>
+        <h4 class="overview">Overview</h4>
+  </div>
+  <h2>Total...................</h2>
+   <h3 id="price-total" ></h3>
+</div>
+
+
+
+<div class="container" data-controller="price-counter">
   <div class="row justify-content-center">
     <% @tab.dishes.each do |dish| %>
       <%# <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
-      <td><%= dish.name %></td>
-      <td> <%= dish.price %></td>
-    </tr>
+      <td><p><%= dish.name %></p></td>
+      <td class="dish-price"><p data-price-counter-target="prices"><%= dish.price %></p></td>
+      </tr>
     <% end %>
     <%= link_to 'Add item', tab_dishes_path(@tab), class: "btn btn-dark" %>
     <%# <%= link_to 'Checkout', tab_dishes_path(@tab), class: "btn btn-dark" %>
