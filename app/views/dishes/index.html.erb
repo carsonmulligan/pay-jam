@@ -15,44 +15,25 @@
         <% end %>
 
 
+<div class="container">
+  <h1>Dishes</h1>
+  <div class="row">
+    <% @dishes.each do |dish| %>
+      <div class="col-6 col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= dish.name %></h5>
+            <p class="card-text"><%= dish.description %></p>
+              <p><%= link_to 'Show', dish_path(dish) %></p>
 
-      <% @dishes.each do |dish| %>
-<<<<<<< HEAD
-      <div class="card-product-infos">
-<<<<<<< HEAD
-           <h2><%= dish.photo %></h2>
-=======
-          <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
->>>>>>> f1804c2d0d9f716495955056d9bc94b2877b1170
-          <h2><%= dish.name %></h2>
-          <p><%= dish.price %></p>
-          <p><%= dish.description %></p>
-          <p><%= link_to 'Show', dish_path(dish) %></p>
-
-
-          <%= simple_form_for(@tab, method: :post, url: tab_tab_dishes_path) do |f| %>
+            <%= simple_form_for(@tab, method: :post, url: tab_tab_dishes_path) do |f| %>
               <%= f.input :dish_id, input_html: { value: dish.id }, as: :hidden %>
               <%= f.submit "Add to Tab", class: 'btn btn-dark' %>
           <% end %>
-      <% end %>
-=======
-      <div class="col-12 col-lg-4">
-        <div>
-        <%# <%= cl_image_tag dish.photo.key, class: "card-img-top" %>
-          <div>
-            <h5><%= dish.name %></h5>
-            <p><%= dish.description %><br>$<%= dish.price %></p>
-
-
-              <%= simple_form_for(@tab, method: :post, url: tab_tab_dishes_path) do |f| %>
-                  <%= f.input :dish_id, input_html: { value: dish.id }, as: :hidden %>
-                  <%= f.submit "Add to Tab", class: 'btn btn-dark' %>
-              <% end %>
-             <% end %>
+          <% end %>
           </div>
         </div>
->>>>>>> ba83820ec6b33545cba76a42cca84f0d9caaa595
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
