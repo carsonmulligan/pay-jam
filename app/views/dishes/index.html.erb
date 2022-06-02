@@ -21,9 +21,8 @@
   <div class="row">
     <% @dishes.each do |dish| %>
       <div class="col-sm-4">
-        <div class="card">
-            <h5 class="card-title"><%= dish.name %></h5>
-            <p class="card-text"><%= dish.description %></p>
+            <h5><%= dish.name %></h5>
+            <p><%= dish.description %><br><%= dish.price_cents %></p>
               <p><%= link_to 'Show', dish_path(dish) %></p>
 
             <%= simple_form_for(@tab, method: :post, url: tab_tab_dishes_path) do |f| %>
