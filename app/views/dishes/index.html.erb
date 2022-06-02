@@ -2,7 +2,8 @@
 
 <div class="container">
   <div class="row justify-content-center">
-      <h2>Add to Table <%= @tab.table_number %></h2>
+
+ <h2>Add to Table <%= @tab.table_number %></h2>
 
       <%= form_tag tab_dishes_path, method: :get do %>
       <%= text_field_tag :query,
@@ -11,18 +12,17 @@
          placeholder: "Find an item"
                      %>
         <%= submit_tag "Search", class: "btn btn-primary" %>
-            <% end %>
+        <% end %>
 
 
 
-    <div class="row row-cols-1 row-cols-md-3">
       <% @dishes.each do |dish| %>
-      <div class="col-md-4">
-        <div class="card h-100">
+      <div class="col-12 col-lg-4">
+        <div>
         <%= cl_image_tag dish.photo.key, class: "card-img-top" %>
-          <div class="card-body">
-            <h5 class="card-title"><%= dish.name %></h5>
-            <p class="card-text"><%= dish.description %><br>$<%= dish.price %></p>
+          <div>
+            <h5><%= dish.name %></h5>
+            <p><%= dish.description %><br>$<%= dish.price %></p>
 
 
               <%= simple_form_for(@tab, method: :post, url: tab_tab_dishes_path) do |f| %>
