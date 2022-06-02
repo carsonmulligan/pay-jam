@@ -1,25 +1,20 @@
 <div class="container">
-<div class="row justify-content-center">
-      <h1>Tabs#index</h1>
-      <p>Find me in app/views/tabs/index.html.erb</p>
-      <h2>List of tables</h2>
-</div>
+  <div class="row">
+        <h1 class="text-align-left"> Your Tables</h1>
+        <p>Active......</p>
+  </div>
 </div>
 
 <div class="cards-container">
-       <div class="row justify-content-center">
-           <div class="cards">
-                <div class="col-6">
-
-                  <div class="card-product">
-                    <% @tabs.each do |tab| %>
-                   <div class="card-product-infos">
-                        <%= tab.table_number %>
-                        <%= tab.status %>
-                        <%= link_to 'Show', tab_path(tab) %>
-                     <% end %>
-                   </div>
-              </div>
-          </div>
-     </div>
+  <div class="row justify-content-center mx-3">
+    <div class="col-12">
+      <% @tabs.each do |tab| %>
+        <div class="d-flex justify-content-between">
+          <p>Table <%= tab.table_number %></p>
+          <p><%= tab.status %></p>
+          <%= link_to 'View', tab_path(tab) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
