@@ -6,7 +6,7 @@
     <% @tab.dishes.each do |dish| %>
       <%# <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
       <td><%= dish.name %></td>
-      <td> <%= dish.price_cents %></td>
+      <td> <%= humanized_money_with_symbol(dish.price_cents) %></td>
     </tr>
     <% end %>
     <%= link_to 'Add item', tab_dishes_path(@tab), class: "btn btn-dark" %>
