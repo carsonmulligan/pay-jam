@@ -28,11 +28,12 @@
 }
 
 .btn-log {
-  width: 300px;
   padding: 20px;
   color: #ff524d;
   font-size: large;
   background-color: white;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 50px;
 }
 
 .btn-log:hover{
