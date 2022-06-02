@@ -1,8 +1,4 @@
 // Specific CSS for your home-page
-a:hover {
-  text-decoration: none;
-}
-
 .home {
   height: 100vh;
   opacity: 95%;
@@ -31,7 +27,7 @@ a:hover {
   padding-bottom: 80px;
 }
 
-.CTA {
+.btn-log {
   width: 300px;
   padding: 20px;
   color: #ff524d;
@@ -39,7 +35,7 @@ a:hover {
   background-color: white;
 }
 
-.CTA:hover{
+.btn-log:hover{
   background-color: #97f9df;
   border-color: white;
   color: white;
@@ -53,9 +49,4 @@ a:hover {
   padding-top: 15px;
   padding-bottom: 80px;
   color: #ffffff;
-}
-
-.btn{
-  background-color:rgba(234, 239, 240,1.0) ;
-  color: rgba(9,8,29,1.0);
 }
