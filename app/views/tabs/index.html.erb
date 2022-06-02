@@ -1,15 +1,15 @@
 <div class="container">
   <div class="row">
-        <h1 class="text-align-left"> Your Tables</h1>
+        <h1> Your Tables</h1>
         <p>Active......</p>
   </div>
 </div>
 
 <div class="cards-container">
-  <div class="row justify-content-center mx-3">
+  <div class="row justify-content-center mx-2">
     <div class="col-12">
       <% @tabs.each do |tab| %>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex bold border justify-content-around">
           <p>Table <%= tab.table_number %></p>
           <p><%= tab.status %></p>
           <%= link_to 'View', tab_path(tab) %>
