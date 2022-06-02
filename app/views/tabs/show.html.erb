@@ -17,6 +17,9 @@
       <td><p><%= dish.name %></p></td>
       <td class="dish-price"><p data-price-counter-target="prices"><%= dish.price %></p></td>
       </tr>
+      <td><%= dish.name %></td>
+      <td> <%= humanized_money_with_symbol(dish.price_cents) %></td>
+    </tr>
     <% end %>
     <%= link_to 'Add item', tab_dishes_path(@tab), class: "btn btn-dark" %>
     <%# <%= link_to 'Checkout', tab_dishes_path(@tab), class: "btn btn-dark" %>
