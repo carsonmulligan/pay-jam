@@ -7,6 +7,7 @@ class CreateDishes < ActiveRecord::Migration[6.1]
       t.string :category
       t.references :restaurant, null: false, foreign_key: true
 
+      monetize :price_cents
       t.timestamps
     end
   end
