@@ -2,9 +2,8 @@
 
 <div class="container">
   <div class="row justify-content-center">
-      <h1>Dishes#index</h1>
-      <p>Find me in app/views/dishes/index.html.erb</p>
-      <h2>List of Dishes</h2>
+
+ <h2>Add to Table <%= @tab.table_number %></h2>
 
       <%= form_tag tab_dishes_path, method: :get do %>
       <%= text_field_tag :query,
@@ -13,25 +12,27 @@
          placeholder: "Find an item"
                      %>
         <%= submit_tag "Search", class: "btn btn-primary" %>
-            <% end %>
+        <% end %>
 
-  </div>
-</div>
 
-<div class="card-product">
+
       <% @dishes.each do |dish| %>
-      <div class="card-product-infos">
-          <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
-          <h2><%= dish.name %></h2>
-          <p><%= dish.price %></p>
-          <p><%= dish.description %></p>
-          <p><%= link_to 'Show', dish_path(dish) %></p>
+      <div class="col-12 col-lg-4">
+        <div>
+        <%= cl_image_tag dish.photo.key, class: "card-img-top" %>
+          <div>
+            <h5><%= dish.name %></h5>
+            <p><%= dish.description %><br>$<%= dish.price %></p>
 
 
-          <%= simple_form_for(@tab, method: :post, url: tab_tab_dishes_path) do |f| %>
-              <%= f.input :dish_id, input_html: { value: dish.id }, as: :hidden %>
-              <%= f.submit "Add to Tab", class: 'btn btn-dark' %>
-          <% end %>
-      <% end %>
+              <%= simple_form_for(@tab, method: :post, url: tab_tab_dishes_path) do |f| %>
+                  <%= f.input :dish_id, input_html: { value: dish.id }, as: :hidden %>
+                  <%= f.submit "Add to Tab", class: 'btn btn-dark' %>
+              <% end %>
+             <% end %>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
 </div>
