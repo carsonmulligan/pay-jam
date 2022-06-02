@@ -25,3 +25,9 @@
     <%# <%= link_to 'Checkout', tab_dishes_path(@tab), class: "btn btn-dark" %>
   </div>
 </div>
+
+
+<%= form_tag bills_path do %>
+  <%= hidden_field_tag 'tab_id', @tab.id %>
+  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+<% end %>
