@@ -1,7 +1,8 @@
 require 'open-uri'
 
-TabDish.destroy_all
+Bill.destroy_all
 Dish.destroy_all
+TabDish.destroy_all
 Tab.destroy_all
 Restaurant.destroy_all
 User.destroy_all
