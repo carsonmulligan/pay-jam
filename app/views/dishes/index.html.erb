@@ -2,9 +2,7 @@
 
 <div class="container">
   <div class="row justify-content-center">
-      <h1>Dishes#index</h1>
-      <p>Find me in app/views/dishes/index.html.erb</p>
-      <h2>List of Dishes</h2>
+      <h2>Add to Table <%= @tab.table_number %></h2>
 
       <%= form_tag tab_dishes_path, method: :get do %>
       <%= text_field_tag :query,
@@ -15,23 +13,26 @@
         <%= submit_tag "Search", class: "btn btn-primary" %>
             <% end %>
 
-  </div>
-</div>
 
-<div class="card-product">
+
+    <div class="row row-cols-1 row-cols-md-3">
       <% @dishes.each do |dish| %>
-      <div class="card-product-infos">
-          <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
-          <h2><%= dish.name %></h2>
-          <p><%= dish.price %></p>
-          <p><%= dish.description %></p>
-          <p><%= link_to 'Show', dish_path(dish) %></p>
+      <div class="col-md-4">
+        <div class="card h-100">
+        <%= cl_image_tag dish.photo.key, class: "card-img-top" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= dish.name %></h5>
+            <p class="card-text"><%= dish.description %><br>$<%= dish.price %></p>
 
 
-          <%= simple_form_for(@tab, method: :post, url: tab_tab_dishes_path) do |f| %>
-              <%= f.input :dish_id, input_html: { value: dish.id }, as: :hidden %>
-              <%= f.submit "Add to Tab", class: 'btn btn-dark' %>
-          <% end %>
-      <% end %>
+              <%= simple_form_for(@tab, method: :post, url: tab_tab_dishes_path) do |f| %>
+                  <%= f.input :dish_id, input_html: { value: dish.id }, as: :hidden %>
+                  <%= f.submit "Add to Tab", class: 'btn btn-dark' %>
+              <% end %>
+             <% end %>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
 </div>
