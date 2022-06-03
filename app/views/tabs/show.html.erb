@@ -10,22 +10,26 @@
 
 
 
-<div class="container" data-controller="price-counter">
-  <div class="row justify-content-center">
-    <% @tab.dishes.each do |dish| %>
-      <%# <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
-      <td><p><%= dish.name %></p></td>
-      <td class="dish-price"><p data-price-counter-target="prices"><%= dish.price_cents %></p></td>
-      <td><%= dish.name %></td>
-      <td> <%= humanized_money_with_symbol(dish.price_cents) %></td>
-    <% end %>
-    <%= link_to 'Add item', tab_dishes_path(@tab), class: "btn btn-dark" %>
-    <%# <%= link_to 'Checkout', tab_dishes_path(@tab), class: "btn btn-dark" %>
+  <% @tab.dishes.each do |dish| %>
+<div class="container justify-content-center">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= dish.name %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= humanized_money_with_symbol(dish.price_cents) %></h6>
+      <a href="#" class="card-link">-</a>
+      <a href="#" class="card-link">+</a>
+    </div>
   </div>
 </div>
+  <% end %>
 
+<div class="btn-group" role="group" aria-label="Basic example">
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <%= link_to 'Add items', tab_dishes_path(@tab), class: "btn btn-dark btn-small" %>
 
-<%= form_tag bills_path do %>
-  <%= hidden_field_tag 'tab_id', @tab.id %>
-  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-<% end %>
+    <%= form_tag bills_path do %>
+      <%= hidden_field_tag 'tab_id', @tab.id %>
+      <%= submit_tag 'Purchase', class: 'btn btn-dark btn small' %>
+    <% end %>
+  </div>
+</div>
