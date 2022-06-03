@@ -3,16 +3,15 @@
 <div class="container">
   <div class="row justify-content-center">
 
- <h2>Add to Table <%= @tab.table_number %></h2>
+    <h2>Add to Table <%= @tab.table_number %></h2>
 
-      <%= form_tag tab_dishes_path, method: :get do %>
-      <%= text_field_tag :query,
-           params[:query],
-         class: "form-control",
-         placeholder: "Find an item"
-                     %>
+    <%= form_tag tab_dishes_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+        class: "form-control",
+        placeholder: "Find an item" %>
         <%= submit_tag "Search", class: "btn btn-primary" %>
-        <% end %>
+    <% end %>
   </div>
 </div>
 
@@ -20,23 +19,19 @@
 
 
 
-        <% @dishes.each do |dish| %>
-      <div class="container justify-content-center">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title"><%= dish.name %></h5>
-            <h6 class="card-subtitle mb-2 text-muted"><%= humanized_money_with_symbol(dish.price_cents) %></h6>
-
-
-
-
-            <a href="#" class="card-link">-</a>
-            <a href="#" class="card-link">+</a>
-       <%= simple_form_for(@tab, method: :post, url: tab_tab_dishes_path) do |f| %>
-                <%= f.input :dish_id, input_html: { value: dish.id }, as: :hidden %>
-                <%= f.submit "Add to Tab", class: 'btn btn-dark' %>
-          </div>
+<% @dishes.each do |dish| %>
+  <div class="container justify-content-center">
+    <div class="card my-2">
+      <div class="card-body">
+        <h5 class="card-title"><%= dish.name %></h5>
+        <div class="dish-data d-flex justify-content-between">
+          <h6 class="card-subtitle mb-2 text-muted"><%= humanized_money_with_symbol(dish.price_cents) %></h6>
+          <%= simple_form_for(@tab, method: :post, url: tab_tab_dishes_path) do |f| %>
+            <%= f.input :dish_id, input_html: { value: dish.id }, as: :hidden %>
+            <%= f.submit "+", class: 'btn plus' %>
+          <% end %>
         </div>
       </div>
-        <% end %>
-         <% end %>
+    </div>
+  </div>
+<% end %>
