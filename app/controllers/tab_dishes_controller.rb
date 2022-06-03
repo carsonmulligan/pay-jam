@@ -37,6 +37,15 @@ class TabDishesController < ApplicationController
   end
 
   def destroy
+    @tab = Tab.find(9)
+
+    total = @tab.total_cents
+    dish = TabDish.find(params[:tab_dish_id]).dish
+    total -= dish.price_cents
+
+    @tab.update(total_cents: total)
+
+    TabDish.destroy(params[:tab_dish_id])
   end
 
   private
