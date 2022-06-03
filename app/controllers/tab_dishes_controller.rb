@@ -16,8 +16,15 @@ class TabDishesController < ApplicationController
     @tab_dish = TabDish.new(tab_dish_params)
     @tab = Tab.find(params[:tab_id])
     @tab_dish.tab = @tab
+
     if @tab_dish.save
       redirect_to tab_path(@tab)
+
+      total = @tab.total_cents
+      dish = Dish.find(tab_dish_params[:dish_id])
+      total += dish.price_cents
+
+      @tab.update(total_cents: total)
     else
       render '/tabs/:tab_id/dishes', notice: 'Sorry, homie'
     end
