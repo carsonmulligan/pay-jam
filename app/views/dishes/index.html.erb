@@ -16,22 +16,27 @@
   </div>
 </div>
 
-<div class="cards-container">
-  <div class="row mx-2">
-   <h1>Dishes</h1>
-      <div class="d-flex bold border justify-content-around bg-white">
-        <% @dishes.each do |dish| %>
-        <div class ="col-12">
-          <h5><%= dish.name %></h5>
-              <p><%= humanized_money_with_symbol(dish.price_cents) %></p>
-                <p><%= link_to 'Show', dish_path(dish) %></p>
 
-              <%= simple_form_for(@tab, method: :post, url: tab_tab_dishes_path) do |f| %>
+
+
+
+        <% @dishes.each do |dish| %>
+      <div class="container justify-content-center">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= dish.name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= humanized_money_with_symbol(dish.price_cents) %></h6>
+
+
+
+
+            <a href="#" class="card-link">-</a>
+            <a href="#" class="card-link">+</a>
+       <%= simple_form_for(@tab, method: :post, url: tab_tab_dishes_path) do |f| %>
                 <%= f.input :dish_id, input_html: { value: dish.id }, as: :hidden %>
                 <%= f.submit "Add to Tab", class: 'btn btn-dark' %>
-            <% end %>
-            <% end %>
           </div>
-          </div>
+        </div>
       </div>
-</div>
+        <% end %>
+         <% end %>
