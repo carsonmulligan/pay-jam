@@ -16,16 +16,16 @@
 
  <% @dishes.each do |dish| %>
   <div class="container justify-content-center">
-    <div class="card bold my-2">
-      <div class="card-body">
+    <div class="card my-2">
+      <div class="card-body d-flex justify-content-between align-items-center">
+      <div>
         <h5 class="card-title"><%= dish.name %></h5>
-        <div class="dish-data d-flex justify-content-between">
-          <h6 class="card-subtitle mb-2 text-muted"><%= humanized_money_with_symbol(dish.price_cents) %></h6>
+        <h6 class="card-subtitle mb-2 text-muted"><%= humanized_money_with_symbol(dish.price_cents) %></h6>
+      </div>
           <%= simple_form_for(@tab, method: :post, url: tab_tab_dishes_path) do |f| %>
-            <%= f.input :dish_id, input_html: { value: dish.id }, as: :hidden %>
+            <%= f.input :dish_id, input_html: { value: dish.id }, wrapper_html: { class: "d-none"}, as: :hidden %>
             <%= f.submit "+", class: 'btn plus' %>
           <% end %>
-        </div>
       </div>
     </div>
   </div>
