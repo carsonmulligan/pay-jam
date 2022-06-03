@@ -1,19 +1,18 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-
-
-    <h2>Add to Table <%= @tab.table_number %></h2>
-
-    <%= form_tag tab_dishes_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-        class: "form-control",
-        placeholder: "Find an item" %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
+      <h2>Add to Table <%= @tab.table_number %></h2>
+      <%= form_tag tab_dishes_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find an item" %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>
+
 
  <% @dishes.each do |dish| %>
   <div class="container justify-content-center">
