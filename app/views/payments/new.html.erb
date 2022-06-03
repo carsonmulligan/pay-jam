@@ -4,7 +4,7 @@
     <div class="col-md-3"></div>
     <div class="col">
       <h1>Checkout summary</h1>
-      <p>Payment of Table <strong><%= @bill.tab.table_number %></strong> for <strong><%= humanized_money_with_symbol @bill.amount %></strong></p>
+      <p>Payment of Table <strong><%= @bill.tab.table_number %></strong> for <strong><%= display_price(@bill.amount) %></strong></p>
       <button id="pay" class="btn btn-primary">Pay</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
