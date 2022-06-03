@@ -12,7 +12,7 @@
     <div class="card my-2">
       <div class="card-body">
         <h5 class="card-title"><%= dish.name %></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%= humanized_money_with_symbol(dish.price_cents) %></h6>
+        <h6 class="card-subtitle mb-2 text-muted"><%= display_price(dish.price_cents) %></h6>
         <a href="#" class="card-link">-</a>
         <a href="#" class="card-link">+</a>
       </div>

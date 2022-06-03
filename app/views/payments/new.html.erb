@@ -1,7 +1,7 @@
 <!-- app/views/payments/new.html.erb -->
 <div class="container text-center ">
   <h1 class="my-4">Checkout summary</h1>
-  <p>Payment of Table <strong><%= @bill.tab.table_number %></strong> for <strong><%= humanized_money_with_symbol @bill.amount %></strong></p>
+  <p>Payment of Table <strong><%= @bill.tab.table_number %></strong> for <strong><%= display_price(@bill.amount) %></strong></p>
   <button id="pay" class="btn btn-dark btn small px-4 mt-4">Pay</button>
 </div>
 

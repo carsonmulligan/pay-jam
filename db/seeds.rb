@@ -191,6 +191,6 @@ puts "#{Tab.count} #{Tab.name} created successfully"
 dishes = Dish.all
 tabs = Tab.all
 
-tabs.each do
-  TabDish.create(tab: tabs.sample, dish: dishes.sample)
-end
+# tabs.each do
+#   TabDish.create(tab: tabs.sample, dish: dishes.sample)
+# end
