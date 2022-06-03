@@ -17,7 +17,7 @@ class TabDishesController < ApplicationController
     @tab = Tab.find(params[:tab_id])
     @tab_dish.tab = @tab
     if @tab_dish.save
-      redirect_to tab_path(@tab), notice: 'Dish added successfully'
+      redirect_to tab_path(@tab)
     else
       render '/tabs/:tab_id/dishes', notice: 'Sorry, homie'
     end
