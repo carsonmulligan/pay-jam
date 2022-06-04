@@ -2,6 +2,7 @@ class TabDishesController < ApplicationController
   def index
   end
 
+
   def show
     @dish = Dish.find(params[:id])
     @tab = Tab.find(params[:id])
@@ -51,6 +52,6 @@ class TabDishesController < ApplicationController
   private
 
   def tab_dish_params
-    params.require(:tab).permit(:dish_id)
+    params.require(:tab).permit(:dish_id, :bill_id)
   end
 end
