@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
   resources :bills, only: [:create, :show, :index] do
     resources :payments, only: :new
+    resources :tab_dishes, only: [:index]
   end
 
   resources :tab_dishes, except: [:create]
