@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     resources :tab_dishes, only: [:index]
   end
 
+  resources :bills_tab_dishes, only: [:index]
+
   resources :tab_dishes, except: [:create]
 
   # get 'test/:tab_dish_id', to: 'tab_dishes#destroy', as: :test

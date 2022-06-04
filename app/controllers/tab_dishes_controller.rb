@@ -52,6 +52,6 @@ class TabDishesController < ApplicationController
   private
 
   def tab_dish_params
-    params.require(:tab).permit(:dish_id, :bill_id)
+    params.require(:tab).permit(:dish_id)
   end
 end
