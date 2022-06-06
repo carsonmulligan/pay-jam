@@ -21,11 +21,7 @@ class TabDishesController < ApplicationController
     if @tab_dish.save
       redirect_to tab_path(@tab)
 
-      total = @tab.total_cents
-      dish = Dish.find(tab_dish_params[:dish_id])
-      total += dish.price_cents
-
-      @tab.update(total_cents: total)
+      update_tab_total(@tab_dish)
     else
       render '/tabs/:tab_id/dishes', notice: 'Sorry, homie'
     end
@@ -36,6 +32,7 @@ class TabDishesController < ApplicationController
 
   def update
   end
+
 
   def destroy
     @tab = Tab.find(9)
@@ -49,9 +46,36 @@ class TabDishesController < ApplicationController
     TabDish.destroy(params[:tab_dish_id])
   end
 
+  def add_unit
+    @tab = Tab.find(params[:tab_id])
+    @tab_dish = TabDish.where(tab_id: params[:tab_id], dish_id: params[:dish_id]).first
+    if @tab_dish.update(quantity: @tab_dish.quantity + 1)
+      update_tab_total(@tab_dish)
+
+      redirect_to @tab
+    else
+      redirect_to @tab, alert: 'unable to add unit'
+    end
+  end
+
+  def remove_unit
+    @tab_dish.update(quantity: 1)
+    @tab.dish.update(quantity: 1)
+  end
+
+
   private
 
   def tab_dish_params
     params.require(:tab).permit(:dish_id)
+  end
+
+  def update_tab_total(tab_dish)
+    tab = tab_dish.tab
+    total = tab.total_cents
+    dish = Dish.find(tab_dish.dish_id)
+    total += dish.price_cents
+
+    tab.update(total_cents: total)
   end
 end
