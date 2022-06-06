@@ -23,10 +23,10 @@
 
 <div class="container mt-4">
   <div class="d-flex justify-content-around">
-    <%= link_to 'Add items', tab_dishes_path(@tab), class: 'btn btn-dark btn-small' if current_user %>
+    <%= link_to 'Add items', tab_dishes_path(@tab), class: 'btn-rounded btn btn-dark btn-small' if current_user %>
     <%= form_tag bills_path do %>
       <%= hidden_field_tag 'tab_id', @tab.id %>
-      <%= submit_tag 'Go to payment', class: 'btn btn-dark btn small' %>
+      <%= submit_tag 'Go to payment', class: 'btn btn-dark btn small btn-rounded' %>
     <% end %>
   </div>
 </div>
