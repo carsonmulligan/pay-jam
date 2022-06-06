@@ -5,11 +5,11 @@
       <ul class="list-unstyled">
         <li><strong>ISSUED ON</strong> <%= @bill.created_at.to_date %></li>
         <li><strong>tab</strong> <%= @bill.tab.table_number %></li>
-        <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @bill.amount %></li>
+        <li><strong>TOTAL</strong> <%= display_price(@bill.amount) %></li>
         </li>
       </ul>
       <p>Payment success!</strong></p>
-      <%= image_tag "happyqrcode" %>
+      <%= image_tag "happyqrcode.png" %>
     </div>
   </div>
 </div>

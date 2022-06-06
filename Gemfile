@@ -7,8 +7,10 @@ ruby '3.0.3'
 gem 'cloudinary', '~> 1.16.0'
 
 gem 'money-rails'
+
 gem 'stripe'
 
+gem 'react-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.6'

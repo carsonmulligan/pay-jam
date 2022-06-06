@@ -2,6 +2,7 @@ class TabDishesController < ApplicationController
   def index
   end
 
+
   def show
     @dish = Dish.find(params[:id])
     @tab = Tab.find(params[:id])
