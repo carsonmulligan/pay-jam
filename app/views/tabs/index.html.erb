@@ -3,18 +3,31 @@
 <h1 class="logo"> El Taco </h1>
   <div class="row">
         <h1> Your Tables</h1>
-        <p>Active......</p>
   </div>
 </div>
 
 <div class="cards-container">
   <div class="row justify-content-center mx-2">
     <div class="col-12">
-      <% @tabs.each do |tab| %>
+    <h3>Active</h3>
+      <% @tabs.open.each do |tab| %>
         <div class="d-flex bold border justify-content-around bg-white">
           <p>Table <%= tab.table_number %></p>
-          <span class="<%= tab.status == 'open' ? 'text-success' : 'text-muted' %>"><%= tab.status %></span>
-          <%= link_to 'View', tab_path(tab) %>
+          <span class="badge rounded-pill px-3 bg-success">
+            <%= tab.status %>
+          </span>
+          <%= link_to "View", tab_path(tab) %>
+        </div>
+      <% end %>
+
+      <h3>Empty</h3>
+      <% @tabs.closed.each do |tab| %>
+        <div class="d-flex bold border justify-content-around bg-white">
+          <p>Table <%= tab.table_number %></p>
+          <span class="badge rounded-pill px-3 bg-secondary">
+            <%= tab.status %>
+          </span>
+          <%= link_to "Open", tab_path(tab) %>
         </div>
       <% end %>
     </div>

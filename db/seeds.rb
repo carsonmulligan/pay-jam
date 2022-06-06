@@ -178,13 +178,20 @@ puts "#{Dish.count} #{Dish.name} created successfully"
 #   restaurant: el_taco
 # }
 
-Tab.create!(total_cents: 0, status: :open, table_number: 1, restaurant: el_taco)
-Tab.create!(total_cents: 0, status: :open, table_number: 2, restaurant: el_taco)
-Tab.create!(total_cents: 0, status: :open, table_number: 3, restaurant: el_taco)
-Tab.create!(total_cents: 0, status: :open, table_number: 4, restaurant: el_taco)
-Tab.create!(total_cents: 0, status: :open, table_number: 5, restaurant: el_taco)
-Tab.create!(total_cents: 0, status: :open, table_number: 6, restaurant: el_taco)
-Tab.create!(total_cents: 0, status: :open, table_number: 7, restaurant: el_taco)
+status = [:open, :closed]
+
+7.times do |x|
+  Tab.create!(total_cents: 0, status: status.sample, table_number: x + 1, restaurant: el_taco)
+end
+
+open_tabs = Tab.open
+dishes = Dish.all
+
+open_tabs.each do |tab|
+  rand(3..10).times do
+    TabDish.create(tab: tab, dish: dishes.sample)
+  end
+end
 
 puts "#{Tab.count} #{Tab.name} created successfully"
 
