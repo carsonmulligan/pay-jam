@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :payments, only: :new
     resources :tab_dishes, only: [:index]
   end
+  post "/bills_split", to: "bills#create_split"
 
   resources :bills_tab_dishes, only: [:index]
 

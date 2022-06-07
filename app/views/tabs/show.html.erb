@@ -32,8 +32,37 @@
       <%= hidden_field_tag 'tab_id', @tab.id %>
       <%= submit_tag 'Pay all', class: 'btn btn-dark btn small btn-rounded' %>
     <% end %>
-    <%= link_to 'Split', tab_split_path(@tab), class: 'btn-rounded btn btn-dark btn-small' %>
+
+<button type="button" class="btn-rounded btn btn-dark btn-small" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Split
+</button>
+
+  </div>
+</div>
 
 
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Number of Guests</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+         <%= simple_form_for(@bill, url: bills_split_path) do |f| %>
+              <%= hidden_field_tag  :amount,  @tab.total_cents %>
+              <%= hidden_field_tag  :tab_id,  params[:id]  %>
+              <%= text_field_tag :number %>
+              <%= f.submit "generate split bill", class: 'btn plus' %>
+            <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-rounded btn btn-dark btn-small" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn-rounded btn btn-secondary btn-small">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>

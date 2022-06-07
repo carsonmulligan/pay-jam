@@ -9,6 +9,7 @@ class TabsController < ApplicationController
     @tab = Tab.find(params[:id])
     @qr_code = RQRCode::QRCode.new("https://www.payjam.co/tabs/#{@tab.id}")
     @svg = @qr_code.as_svg
+    @bill = Bill.new
   end
 
   def destroy
