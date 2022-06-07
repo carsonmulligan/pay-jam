@@ -1,0 +1,11 @@
+<div class="container">
+  <h1 class="logo">El Taco</h1>
+  <div class="row justify-content-sm-between">
+  </div>
+</div>
+<div class="container mt-4">
+  <div class="d-flex justify-content-around">
+    <%= link_to 'Pay all', tab_dishes_path(@tab), class: 'btn-rounded btn btn-dark btn-small' %>
+    <%= link_to 'Split', tab_split_path(@tab), class: 'btn-rounded btn btn-dark btn-small' %>
+  </div>
+</div>

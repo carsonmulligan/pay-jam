@@ -30,7 +30,10 @@
     <%= link_to 'Add items', tab_dishes_path(@tab), class: 'btn-rounded btn btn-dark btn-small' if current_user %>
     <%= form_tag bills_path do %>
       <%= hidden_field_tag 'tab_id', @tab.id %>
-      <%= submit_tag 'Go to payment', class: 'btn btn-dark btn small btn-rounded' %>
+      <%= submit_tag 'Pay all', class: 'btn btn-dark btn small btn-rounded' %>
     <% end %>
+    <%= link_to 'Split', tab_split_path(@tab), class: 'btn-rounded btn btn-dark btn-small' %>
+
+
   </div>
 </div>
