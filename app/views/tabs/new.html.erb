@@ -1,6 +1,6 @@
 <div class="container my-5">
-
-  <%= @svg.html_safe %>
-  <%= link_to 'Go to Tab', new_tab_path(7), class: 'btn-rounded btn btn-dark btn-small' %>
-
+  <div class="row justify-content-center mx-2">
+    <%= @svg.html_safe %>
+  </div>
+  <%= link_to 'Go to tab', tabs_path(7), class: 'btn-rounded btn btn-dark btn-small' %>
 </div>
