@@ -165,7 +165,7 @@ file = URI.open('https://res.cloudinary.com/didajvmh1/image/upload/v1654095712/P
 maracuja.photo.attach(io: file, filename: "#{maracuja.name}.png", content_type: 'image/png')
 
 # desserts
-churros = Dish.create(name: 'Churros', description: 'Sweet Mexican dessert with brown sugar and chocalate sauce', price_cents: 390, category: 'desserts', restaurant: el_taco)
+churros = Dish.create(name: 'Churros', description: 'Sweet Mexican dessert with brown sugar and chocalate sauce', price_cents: 390, category: 'Desserts', restaurant: el_taco)
 file = URI.open('https://res.cloudinary.com/didajvmh1/image/upload/v1654095781/PRATOS/churros_jjzd67.png')
 churros.photo.attach(io: file, filename: "#{churros.name}.png", content_type: 'image/png')
 
