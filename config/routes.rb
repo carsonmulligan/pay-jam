@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   resources :tab_dishes do
     member do
       post 'add_unit'
+      # delete 'remove_unit'
+      # post 'remove_unit'
     end
   end
 
