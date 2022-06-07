@@ -1,8 +1,7 @@
 <div class="container">
   <h1 class="logo">El Taco</h1>
-  <div class="row">
-    <h1 class="tableclass"> Table <%= @tab.table_number  %></h1>
-    <h4 class="overview">Overview</h4>
+  <div class="row justify-content-sm-between">
+    <h1 class="tableclass text-center border-bottom"> Table <%= @tab.table_number  %></h1>
   </div>
   <h2>Total: <%= display_price(@tab.total_cents) %></h2>
 </div>
