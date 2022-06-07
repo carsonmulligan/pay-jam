@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :restaurants
   resources :dishes, except: [:index]
-  resources :tabs, only: [:index, :show] do
+  resources :tabs, only: [:new, :index, :show] do
     resources :dishes, only: [:index]
     resources :tab_dishes, only: [:create, :destroy]
     resources :split, only: [:show]
