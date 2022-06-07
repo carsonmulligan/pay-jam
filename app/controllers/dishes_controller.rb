@@ -23,6 +23,10 @@ class DishesController < ApplicationController
       @dishes = Dish.all
     end
 
+    @categories = @dishes.order(:category).map do |dish|
+      dish.category
+    end.uniq
+
     @tab = Tab.find(params[:tab_id])
   end
 
