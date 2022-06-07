@@ -19,14 +19,12 @@
         </h5>
 
         <h6 class="card-subtitle mb-2 text-muted"><%= display_price(dish.price_cents) %></h6>
-        <a href="#" class="card-link">-</a>
-        <a href="/tab_dishes/:id/add_unit_path", add_unit(tab_dish), class="card-link">+</a>
-        <%= link_to "+", add_unit_tab_dish_path(tab_id: @tab.id, dish_id: dish.id), class: "btn-log", method: :post if user_signed_in? %>
+        <%= link_to "-", add_unit_tab_dish_path(tab_id: @tab.id, dish_id: dish.id, dish_action: 'remove'), class: "btn", method: :post if user_signed_in? %>
+        <%= link_to "+", add_unit_tab_dish_path(tab_id: @tab.id, dish_id: dish.id, dish_action: 'add'), class: "btn", method: :post if user_signed_in? %>
       </div>
     </div>
   </div>
 <% end %>
-
 
 <div class="container mt-4">
   <div class="d-flex justify-content-around">

@@ -33,7 +33,6 @@ class TabDishesController < ApplicationController
   def update
   end
 
-
   def destroy
     @tab = Tab.find(9)
 
@@ -49,8 +48,12 @@ class TabDishesController < ApplicationController
   def add_unit
     @tab = Tab.find(params[:tab_id])
     @tab_dish = TabDish.where(tab_id: params[:tab_id], dish_id: params[:dish_id]).first
-    if @tab_dish.update(quantity: @tab_dish.quantity + 1)
-      update_tab_total(@tab_dish)
+    action = params[:dish_action]
+
+    add_or_remove = action == "add" ? 1 : -1
+
+    if @tab_dish.update(quantity: @tab_dish.quantity + add_or_remove)
+      update_tab_total(@tab_dish, action)
 
       redirect_to @tab
     else
@@ -58,23 +61,18 @@ class TabDishesController < ApplicationController
     end
   end
 
-  def remove_unit
-    @tab_dish.update(quantity: 1)
-    @tab.dish.update(quantity: 1)
-  end
-
-
   private
 
   def tab_dish_params
     params.require(:tab).permit(:dish_id)
   end
 
-  def update_tab_total(tab_dish)
+  def update_tab_total(tab_dish, action = "add")
     tab = tab_dish.tab
     total = tab.total_cents
     dish = Dish.find(tab_dish.dish_id)
-    total += dish.price_cents
+
+    action == "add" ? total += dish.price_cents : total -= dish.price_cents
 
     tab.update(total_cents: total)
   end
