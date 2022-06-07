@@ -1,11 +1,56 @@
 <div class="container">
-  <h1 class="logo">El Taco</h1>
+  <h1 class="logo">My Tab</h1>
   <div class="row justify-content-sm-between">
   </div>
 </div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <h2>Search & add from full Bill </h2>
+       <form class="form-inline md-form mr-auto mb-4">
+       <i class="fas fa-search" aria-hidden="true"></i>
+          <%= form_tag tab_dishes_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control mr-sm-2",
+              placeholder: "Find an item" %>
+              <%= submit_tag "Search", class: "btn btn-outline-primary" %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<% @tab.dishes.each do |dish| %>
+  <div class="container justify-content-center">
+    <div class="card my-2">
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= dish.name %>
+          <span class="badge bg-secondary">
+            <%= TabDish.where(tab: @tab, dish: dish).first.quantity %>
+          </span>
+        </h5>
+
+        <h6 class="card-subtitle mb-2 text-muted"><%= display_price(dish.price_cents) %></h6>
+        <%= link_to "-", add_unit_tab_dish_path(tab_id: @tab.id, dish_id: dish.id, dish_action: 'remove'), class: "btn", method: :post if user_signed_in? %>
+        <%= link_to "+", add_unit_tab_dish_path(tab_id: @tab.id, dish_id: dish.id, dish_action: 'add'), class: "btn", method: :post if user_signed_in? %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+
 <div class="container mt-4">
   <div class="d-flex justify-content-around">
-    <%= link_to 'Pay all', tab_dishes_path(@tab), class: 'btn-rounded btn btn-dark btn-small' %>
-    <%= link_to 'Split', tab_split_path(@tab), class: 'btn-rounded btn btn-dark btn-small' %>
+   <%= link_to 'Add items', tab_dishes_path(@tab), class: 'btn-rounded btn btn-dark btn-small' if current_user %>
+    <%= form_tag bills_path do %>
+      <%= hidden_field_tag 'tab_id', @tab.id %>
+      <%= submit_tag 'Pay', class: 'btn btn-dark btn small btn-rounded' %>
+    <% end %>
   </div>
 </div>
