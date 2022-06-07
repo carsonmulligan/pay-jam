@@ -1,5 +1,12 @@
 class TabDishesController < ApplicationController
   def index
+    @tab = Tab.find(params[:id])
+    @dish = Dish.find(params[:id])
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR description ILIKE :query or category ILIKE :query"
+      @tab_dishes = TabDish.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @tab_dishes = TabDish.all
   end
 
 
