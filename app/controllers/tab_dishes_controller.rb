@@ -7,6 +7,7 @@ class TabDishesController < ApplicationController
       @tab_dishes = TabDish.where(sql_query, query: "%#{params[:query]}%")
     else
       @tab_dishes = TabDish.all
+    end
   end
 
 
