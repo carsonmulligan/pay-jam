@@ -10,7 +10,9 @@ class BillsController < ApplicationController
 
   def create
     @tab = Tab.find(params[:tab_id])
-    @bill = Bill.create(tab: @tab, amount: @tab.total_cents, status: 0)
+    total = params[:amount].present? ? params[:amount] : @tab.total_cents
+
+    @bill = Bill.create(tab: @tab, amount: total, status: 0)
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
@@ -24,6 +26,10 @@ class BillsController < ApplicationController
     )
     @bill.update(checkout_session_id: session.id)
     redirect_to new_bill_payment_path(@bill)
+  end
+
+  def new
+    # @bill = Bill.new()
   end
 
 end

@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'bills/index'
-  get 'bills/show'
-  get 'bills/create'
   devise_for :users
   root to: 'pages#home'
 
@@ -10,7 +7,11 @@ Rails.application.routes.draw do
   resources :tabs, only: [:index, :show] do
     resources :dishes, only: [:index]
     resources :tab_dishes, only: [:create, :destroy]
+    resources :split, only: [:show]
   end
+
+  get 'tabs/:id/split', to: 'split#show'
+
   resources :bills, only: [:create, :show, :index] do
     resources :payments, only: :new
     resources :tab_dishes, only: [:index]

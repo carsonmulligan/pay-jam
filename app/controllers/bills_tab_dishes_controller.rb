@@ -3,6 +3,10 @@ class BillsTabDishesController < ApplicationController
     @bills_tab_dishes = BillTabDishes.all(bill_tab_dish_params)
   end
 
+  def create
+  @bills_tab_dish = BillTabDish.create()
+
+  end
   private
 
   def bill_tab_dish_params
