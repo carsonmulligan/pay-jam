@@ -25,7 +25,7 @@
   <% @dishes.group_by(&:category).each do |category, dishes| %>
     <div class="accordion-item mb-1">
       <h2 class="accordion-header" id="categoryItemHeading-<%= category.id %>">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#categoryItem-<%= category.id %>">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" style="background-color: white;" data-bs-target="#categoryItem-<%= category.id %>">
           <%= category.name %>
         </button>
       </h2>

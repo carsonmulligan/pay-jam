@@ -8,6 +8,12 @@
 
 a {text-decoration: none;}
 
+.card-tables {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 15px 0px;
+}
 
 .badge {
   text-transform: uppercase;

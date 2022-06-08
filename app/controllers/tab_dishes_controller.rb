@@ -27,9 +27,10 @@ class TabDishesController < ApplicationController
     @tab_dish.tab = @tab
 
     if @tab_dish.save
-      redirect_to tab_path(@tab)
-
       update_tab_total(@tab_dish)
+      redirect_to tab_dishes_path(@tab)
+
+
     else
       render '/tabs/:tab_id/dishes', notice: 'Sorry, homie'
     end

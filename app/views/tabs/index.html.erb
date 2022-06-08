@@ -8,23 +8,28 @@
 <div class="cards-container">
   <div class="row justify-content-center mx-2">
     <div class="col-12">
-    <h3 class="tableclass border-bottom">Active</h3>
+    <h3 class="tableclass border-bottom">Open tables</h3>
       <% @tabs.open.each do |tab| %>
-        <div class="d-flex bold border align-items-center justify-content-around bg-white">
-          <p>Table <%= tab.table_number %></p>
-          <span class="border-bottom badge rounded-pill px-4 bg-success">
-            <%= tab.status %>
-          </span>
-          <%= link_to "View", tab_path(tab) %>
-        </div>
+        <div class="card-tables bold border bg-white">
+          <div class="d-flex">
+            <h5>Table <%= tab.table_number %></h5>
+            <i class="fa fa-solid fa-circle" style="color: green; padding-left: 4px;"></i>
+          </div>
+            <%= link_to "View", tab_path(tab) %>
+          </div>
       <% end %>
 
-      <h3 class="tableclass border-bottom">Empty</h3>
+      <h3 class="tableclass border-bottom">Empty tables</h3>
       <% @tabs.closed.each do |tab| %>
-        <div class="d-flex bold border align-items-center justify-content-around bg-gray">
-          <p>Table <%= tab.table_number %></p>
-          <%= link_to "Open", tab_path(tab) %>
-        </div>
+        <div class="card-tables bold border bg-grey">
+          <div class="d-flex">
+            <h5>Table <%= tab.table_number %></h5>
+            <i class="fa fa-solid fa-circle" style="color: red; padding-left: 4px;"></i>
+          </div>
+            <%= link_to "View", tab_path(tab) %>
+          </div>
+
+
       <% end %>
     </div>
   </div>
