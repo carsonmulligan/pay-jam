@@ -61,12 +61,10 @@
               <%= hidden_field_tag  :amount,  @tab.total_cents %>
               <%= hidden_field_tag  :tab_id,  params[:id]  %>
               <%= text_field_tag :number %>
-              <%= f.submit "generate split bill", class: 'btn plus' %>
+              <%= f.submit "generate split bill", class: 'btn-rounded btn btn-dark btn-small' %>
             <% end %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn-rounded btn btn-dark btn-small" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn-rounded btn btn-secondary btn-small">Save changes</button>
       </div>
     </div>
   </div>

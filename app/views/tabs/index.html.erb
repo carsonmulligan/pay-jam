@@ -24,9 +24,6 @@
       <% @tabs.closed.each do |tab| %>
         <div class="d-flex bold border justify-content-around bg-gray">
           <p>Table <%= tab.table_number %></p>
-          <span class="badge rounded-pill px-4 bg-secondary">
-            <%= tab.status %>
-          </span>
           <%= link_to "Open", new_tab_path(tab) %>
         </div>
       <% end %>
