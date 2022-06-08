@@ -8,7 +8,9 @@ class TabsController < ApplicationController
   def show
     @tab = Tab.find(params[:id])
     @qr_code = RQRCode::QRCode.new("https://www.payjam.co/tabs/#{@tab.id}")
-    @svg = @qr_code.as_svg
+    @svg = @qr_code.as_svg(
+    module_size: 25
+  )
     @bill = Bill.new
   end
 
