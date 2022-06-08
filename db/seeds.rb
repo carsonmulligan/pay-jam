@@ -15,10 +15,10 @@ el_taco = Restaurant.create(name: 'El Taco Mexican & Cocktails Bar', address: 'R
 puts "#{el_taco.name} restaurant created successfully"
 
 # Categories
-categories = ["Burritos", "Desserts", "Drinks", "Saladas", "Sopas", "Starters", "Tacos", "Vegetarian Specials"]
+categories = ["Starters", "Sopas", "Saladas", "Tacos", "Burritos", "Vegetarian Specials", "Desserts", "Drinks"]
 
-categories.each do |category|
-  Category.create(name: category)
+categories.each_with_index do |category, index|
+  Category.create(name: category, order: index)
 
   puts "#{category} category created successfully"
 end
