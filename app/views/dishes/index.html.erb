@@ -2,24 +2,21 @@
    <div class="row justify-content-center">
      <div class="col-12 col-lg-6">
        <h2 class="border-bottom text-center tableclass">Add dishes to table <%= @tab.table_number %></h2>
-         <div class="wrap">
-           <div class="search">
                <div class="row justify-content-between mx-4 mt-2">
                   <%= form_tag tab_dishes_path, method: :get do %>
                     <%= text_field_tag :query,
                       params[:query],
-                          class: "searchTerm",
+                          class: "form-group pull-right",
                           placeholder: "Find an item" %>
-                          <%= button_tag( :class => "searchButton") do %>
-                          <i class="fa fa-search"></i>
+                          <%= submit_tag "Search", class: "favicon_link_tag" %>
                         <% end %>
-                  <% end %>
-               </div>
-           </div>
+                </div>
+            </div>
+          </div>
         </div>
-      </div>
-   </div>
-</div>
+    </div>
+  </div>
+
 
 <div class="accordion" id="categoryAccordion">
   <% @dishes.group_by(&:category).each do |category, dishes| %>
