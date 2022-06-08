@@ -13,7 +13,7 @@
       <% @tabs.open.each do |tab| %>
         <div class="d-flex bold border justify-content-around bg-white">
           <p>Table <%= tab.table_number %></p>
-          <span class="badge rounded-pill px-4 bg-success">
+          <span class="border-bottom badge rounded-pill px-4 bg-success">
             <%= tab.status %>
           </span>
           <%= link_to "View", tab_path(tab) %>
