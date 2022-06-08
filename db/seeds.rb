@@ -187,12 +187,6 @@ end
 open_tabs = Tab.open
 dishes = Dish.all
 
-open_tabs.each do |tab|
-  rand(3..10).times do
-    TabDish.create(tab: tab, dish: dishes.sample)
-  end
-end
-
 puts "#{Tab.count} #{Tab.name} created successfully"
 
 dishes = Dish.all
