@@ -2,30 +2,31 @@
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
       <h2 class="border-bottom text-center tableclass">Add dishes to table <%= @tab.table_number %></h2>
-       <form class="form-inline md-form mr-auto mb-4">
-       <i class="fas fa-search" aria-hidden="true"></i>
-          <%= form_tag tab_dishes_path, method: :get do %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "form-control mr-sm-2",
-              placeholder: "Find an item" %>
-              <%= submit_tag "Search", class: "btn btn-outline-primary" %>
-          <% end %>
-      </div>
+      <form class="form-inline md-form mr-auto mb-4">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <%= form_tag tab_dishes_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control mr-sm-2",
+            placeholder: "Find an item"
+          %>
+          <%= submit_tag "Search", class: "btn btn-outline-primary" %>
+        <% end %>
+      </form>
     </div>
   </div>
 </div>
 
 <div class="accordion" id="categoryAccordion">
-  <%= @categories.each do |category| %>
+  <% @categories.each do |category| %>
     <div class="accordion-item mb-1">
-      <h2 class="accordion-header" id="categoryItemHeading-<%= category %>">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#categoryItem-<%= category %>">
-          <%= category %>
+      <h2 class="accordion-header" id="categoryItemHeading-<%= category.id %>">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#categoryItem-<%= category.id %>">
+          <%= category.name %>
         </button>
       </h2>
 
-      <div id="categoryItem-<%= category %>" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+      <div id="categoryItem-<%= category.id %>" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
         <div class="accordion-body">
           <% @dishes.where(category: category).each do |dish| %>
             <div class="container justify-content-center">
