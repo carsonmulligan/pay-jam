@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_07_104117) do
+ActiveRecord::Schema.define(version: 2022_06_08_114629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,14 +61,22 @@ ActiveRecord::Schema.define(version: 2022_06_07_104117) do
     t.index ["tab_dish_id", "bill_id"], name: "index_bills_tab_dishes_on_tab_dish_id_and_bill_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "order"
+  end
+
   create_table "dishes", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.integer "price_cents", default: 0, null: false
-    t.string "category"
     t.bigint "restaurant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_dishes_on_category_id"
     t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
   end
 

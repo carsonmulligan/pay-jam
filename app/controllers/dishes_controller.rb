@@ -16,18 +16,15 @@ class DishesController < ApplicationController
   end
 
   def index
+    @categories = Category.all
+    @tab = Tab.find(params[:tab_id])
+
     if params[:query].present?
       sql_query = "name ILIKE :query OR description ILIKE :query or category ILIKE :query"
       @dishes = Dish.where(sql_query, query: "%#{params[:query]}%")
     else
       @dishes = Dish.all
     end
-
-    @categories = @dishes.order(:category).map do |dish|
-      dish.category
-    end.uniq
-
-    @tab = Tab.find(params[:tab_id])
   end
 
   def show
