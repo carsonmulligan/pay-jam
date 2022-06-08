@@ -1,3 +1,17 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1600147131759-880e94a6185f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80);">
+  <div class="container banner-padding-text">
+    <h1 class="text-center">Your costumers are looking for the fastest way to pay!</h1>
+    <p>turn more tables</p>
+    <p>increase avg spend</p>
+    <p>get more tips</p>
+    <div class="text-center mt-5">
+     <%= link_to "Login Here", new_user_session_path, class: "btn btn-primary" unless user_signed_in? %>
+     <%= link_to "Log out", destroy_user_session_path, class: "btn btn-primary", method: :delete if user_signed_in? %>
+    </div>
+
+  </div>
+</div>
+
 <div class="container-fluid">
   <div class="row home">
     <div class="col-sm-4 splash">
@@ -5,8 +19,7 @@
         <h1>Pay Jam</h1>
         <p>Payments, easier.</p>
 
-          <%= link_to "Login Here", new_user_session_path, class: "btn btn-outline-dark" unless user_signed_in? %>
-          <%= link_to "Log out", destroy_user_session_path, class: "btn btn-outline-dark", method: :delete if user_signed_in? %>
+
 
         <%# <a href=users/sign_in class="btn btn-lg active" role="button" aria-pressed="true">Login</a> %>
         <%# <button type="button" class="btn btn-default CTA">Login</button> %>
