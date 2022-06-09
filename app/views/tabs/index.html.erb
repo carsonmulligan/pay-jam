@@ -1,10 +1,8 @@
-
 <div class="container">
   <h1 class="tables text-start mb-4 fw-bold">Tables</h1>
 
-  <%# <div class="container"> %>
     <!-- Open tabs -->
-    <h3 class="tableclass mb-3 fs-3">Active</h3>
+    <h3 class="text-muted mb-3 fs-3">Active</h3>
     <% @tabs.open.each do |tab| %>
       <div class="card card-rounded p-3 mb-3 light-blue" style="background: #C8EEFF;">
         <div class="d-flex justify-content-between align-items-center">
@@ -19,7 +17,7 @@
     <% end %>
 
     <!-- Empty tabs -->
-    <h3 class="tableclass mb-3 mt-5 fs-3">Empty</h3>
+    <h3 class="text-muted mb-3 mt-5 fs-3">Empty</h3>
     <% @tabs.closed.each do |tab| %>
       <div class="card card-rounded p-3 mb-3">
         <div class="d-flex justify-content-between align-items-center">
