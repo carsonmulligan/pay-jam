@@ -1,9 +1,33 @@
 .loginlogo {
 
-box-sizing: border-box;
-width: 146px;
-height: 146px;
-align-items: center;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 146px;
+  height: 146px;
+  padding-bottom: 15px;
+}
 
 
+.form-inputs {
+  input {
+    border: none;
+    border-bottom: 1px solid gray;
+    background: transparent;
+  }
+
+  form-check-input {
+    border: 1px solid gray !important;
+  }
+}
+
+.password{
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  color: #77767D;
 }

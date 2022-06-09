@@ -3,27 +3,33 @@
      <div class="col-12 col-sm-4">
        <div class="row justify-content-sm-between">
        <h1 class="logonav text-center">PayJam</h1>
-         <%= image_tag "logologin.png", class: "loginlogo" %>
+        <%= image_tag "logologin.png", class: "loginlogo center" %>
          <p class="text-center">Login to make your checkouts easier.</p>
       </div>
-       <h2>Log in</h2>
 
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs">
             <%= f.input :email,
                         required: false,
+                        label: false,
+                        placeholder: 'Email',
                         autofocus: true,
                         input_html: { autocomplete: "email" } %>
             <%= f.input :password,
                         required: false,
+                        label: false,
+                        placeholder: 'Password',
                         input_html: { autocomplete: "current-password" } %>
             <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
           </div>
 
-          <div class="form-actions">
-            <%= f.button :submit, "Log in", class: 'btn-rounded btn btn-dark btn-small' %>
+          <div class="form-actions log-in">
+            <%= f.button :submit, "Log in", class: 'button btn-lg btn-primary' %>
           </div>
         <% end %>
+        <div class="password">
+          <h6>Forgot Password?</h6>
+          </div>
 
         <%= render "devise/shared/links" %>
      </div>
