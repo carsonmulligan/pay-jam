@@ -1,70 +1,90 @@
 <div class="container">
-  <h1 class="logo">El Taco</h1>
-  <div class="row justify-content-sm-between">
-    <h1 class="tableclass text-center border-bottom"> Table <%= @tab.table_number  %></h1>
+  <div class="d-flex justify-content-between align-items-center mb-5">
+    <h1 class="tables text-start mb-0 fw-bold">Table <%= @tab.table_number  %></h1>
+    <h5 class="text-muted mb-0">Total: <%= display_price(@tab.total_cents) %></h5>
   </div>
-  <h2>Total: <%= display_price(@tab.total_cents) %></h2>
-</div>
 
-<% @tab.dishes.each do |dish| %>
-  <div class="container justify-content-center">
-    <div class="card my-2">
-      <div class="card-body">
-        <h5 class="card-title">
-          <%= dish.name %>
-          <span class="badge bg-secondary">
-            <%= TabDish.where(tab: @tab, dish: dish).first.quantity %>
-          </span>
-        </h5>
+  <% @tab.dishes.each do |dish| %>
+    <div class="card card-rounded p-3 mb-3">
+      <div class="d-flex align-items-start">
+        <span class="badge bg-secondary py-2 align-content-start">
+          <%= TabDish.where(tab: @tab, dish: dish).first.quantity %>
+        </span>
+        <div class="d-flex align-items-center ms-3 flex-grow-1">
+          <div class="flex-grow-1">
+            <h5 class="card-title mb-0"><%= dish.name %></h5>
+            <h6 class="card-subtitle mb-0 text-muted">
+              &thinsp;<%= display_price(dish.price_cents) %>
+            </h6>
+          </div>
+          <div class="flex-shrink-0">
+            <%= link_to content_tag(:i, "", class: ["fas", "fa-minus"]),
+              add_unit_tab_dish_path( tab_id: @tab.id, dish_id: dish.id, dish_action: 'remove'),
+                class: "text-primary fw-bold me-3",
+                method: :post if user_signed_in? %>
 
-        <h6 class="card-subtitle mb-2 text-muted"><%= display_price(dish.price_cents) %></h6>
-        <%= link_to "-", add_unit_tab_dish_path(tab_id: @tab.id, dish_id: dish.id, dish_action: 'remove'), class: "btn", method: :post if user_signed_in? %>
-        <%= link_to "+", add_unit_tab_dish_path(tab_id: @tab.id, dish_id: dish.id, dish_action: 'add'), class: "btn", method: :post if user_signed_in? %>
+            <%= link_to content_tag(:i, "", class: ["fas", "fa-plus"]),
+              add_unit_tab_dish_path(tab_id: @tab.id, dish_id: dish.id, dish_action: 'add'),
+                class: "text-primary fw-bold",
+                method: :post if user_signed_in? %>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
-<div class="container mt-4">
-   <div class="row justify-content-center mx-2 mt-2">
-     <%= link_to 'Add items', tab_dishes_path(@tab), class: 'btn-rounded btn btn-dark btn-lg' if current_user %>
-   </div>
+<div class="container mb-3 position-absolute bottom-0">
+  <% if user_signed_in? %>
+    <div class="row justify-content-center mx-2 mt-2">
+      <%= link_to 'Add items', tab_dishes_path(@tab), class: 'btn btn-primary btn-lg card-rounded' %>
+    </div>
+  <% end %>
+
+  <!-- Payment buttons -->
+  <% unless user_signed_in? %>
+    <!-- Pay all -->
     <%= form_tag bills_path do %>
-    <%= hidden_field_tag 'tab_id', @tab.id %>
+      <%= hidden_field_tag 'tab_id', @tab.id %>
       <div class="row justify-content-center mx-2 mt-2">
-         <%= submit_tag 'Pay all', class: 'btn btn-dark btn-lg btn-rounded' %>
-       </div>
+        <%= submit_tag 'Pay all', class: 'btn btn-primary btn-lg card-rounded' unless user_signed_in? %>
+      </div>
     <% end %>
-<div class="row justify-content-center mx-2 mt-2">
-   <button type="button" class="btn-rounded btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Split the bill
-    </button>
+
+    <!-- Split bill (triggers the modal) -->
+    <div class="row justify-content-center mx-2 mt-2">
+      <button type="button" class="btn btn-primary btn-lg card-rounded" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Split the bill
+      </button>
+    </div>
+  <% end %>
 </div>
-
-
-  </div>
-</div>
-
-
-<!-- Button trigger modal -->
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade rounded" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Number of Guests</h5>
+        <h5 class="modal-title" id="exampleModalLabel">How do you want to split?</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-         <%= simple_form_for(@bill, url: bills_split_path) do |f| %>
-              <%= hidden_field_tag  :amount,  @tab.total_cents %>
-              <%= hidden_field_tag  :tab_id,  params[:id]  %>
-              <%= text_field_tag :number %>
-              <%= f.submit "generate split bill", class: 'btn-rounded btn btn-dark btn-small' %>
-            <% end %>
-      </div>
-      <div class="modal-footer">
+        <%= simple_form_for(@bill, url: bills_split_path) do |f| %>
+          <%= hidden_field_tag :amount, @tab.total_cents %>
+          <%= hidden_field_tag :tab_id, params[:id]  %>
+            <div class="row justify-content-center mx-3 mt-3">
+              <%= text_field_tag :number, nil, placeholder: 'Number of guests', class: "flex-grow-1 me-2 form-control card-rounded" %>
+            </div>
+            <div class="row justify-content-center mx-3 mt-3">
+              <%= f.submit "Split evenly", class: 'btn btn-primary card-rounded px-4' %>
+          </div>
+        <% end %>
+        <div>
+          <h2 class="line-split my-5"><span class="fs-6 text-muted">OR</span></h2>
+          <div class="row justify-content-center mx-3 mt-5">
+            <a href="#" class="btn btn-primary card-rounded px-4">Custom split</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

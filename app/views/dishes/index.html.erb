@@ -1,26 +1,25 @@
 <div class="container">
-   <div class="row justify-content-center">
-     <div class="col-12 col-lg-6">
-       <h2 class="border-bottom text-center tableclass">Add dishes to table <%= @tab.table_number %></h2>
-               <div class="row justify-content-between mx-4 mt-2">
-                  <%= form_tag tab_dishes_path, method: :get do %>
-                    <%= text_field_tag :query,
-                      params[:query],
-                          class: "form-group pull-right",
-                          placeholder: "Find an item" %>
-                          <%= submit_tag "Search", class: "favicon_link_tag" %>
-                        <% end %>
-                </div>
-            </div>
-          </div>
-        </div>
-    </div>
+  <h1 class="tables text-start mb-4 fw-bold">Table <%= @tab.table_number  %></h1>
+  <h3 class="text-muted mb-3 fs-3">Add items</h3>
+
+  <div class="d-flex justify-content-between align-items-center my-4">
+      <div>
+        <%= form_tag tab_dishes_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+              class: "form-control card-rounded transparent",
+              placeholder: "Find an item" %>
+      </div>
+      <div>
+        <%= submit_tag "Search", class: "btn btn-primary card-rounded px-4" %>
+      </div>
+    <% end %>
   </div>
+</div>
 
-
-<div class="accordion" id="categoryAccordion">
+<div class="container accordion" id="categoryAccordion">
   <% @dishes.group_by(&:category).each do |category, dishes| %>
-    <div class="accordion-item mb-1">
+    <div class="accordion-item mb-2">
       <h2 class="accordion-header" id="categoryItemHeading-<%= category.id %>">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" style="background-color: white;" data-bs-target="#categoryItem-<%= category.id %>">
           <%= category.name %>
@@ -30,18 +29,16 @@
       <div id="categoryItem-<%= category.id %>" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
         <div class="accordion-body">
           <% dishes.each do |dish| %>
-            <div class="container justify-content-center">
-              <div class="card my-2">
-                <div class="card-body d-flex justify-content-between align-items-center">
+            <div class="container card my-3 justify-content-center">
+              <div class="d-flex justify-content-between align-items-center py-2">
                 <div>
                   <h5 class="card-title"><%= dish.name %></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"><%= display_price(dish.price_cents) %></h6>
+                  <h6 class="card-subtitle text-muted"><%= display_price(dish.price_cents) %></h6>
                 </div>
-                    <%= simple_form_for(@tab, method: :post, url: tab_tab_dishes_path) do |f| %>
-                      <%= f.input :dish_id, input_html: { value: dish.id }, wrapper_html: { class: "d-none"}, as: :hidden %>
-                      <%= f.submit "+", class: 'btn plus' %>
-                    <% end %>
-                </div>
+                  <%= simple_form_for(@tab, method: :post, url: tab_tab_dishes_path) do |f| %>
+                    <%= f.input :dish_id, input_html: { value: dish.id }, wrapper_html: { class: "d-none"}, as: :hidden %>
+                    <%= f.submit "+", class: 'btn plus' %>
+                  <% end %>
               </div>
             </div>
           <% end %>
@@ -50,6 +47,9 @@
     </div>
   <% end %>
 </div>
-<div class="row justify-content-center">
-  <%= link_to "Go to Tab", tab_path(@tab), class: "btn-rounded btn btn-primary btn-sm" %>
+
+<div class="container mb-3">
+  <div class="row justify-content-center mx-2 mt-5">
+    <%= link_to "Go to Tab", tab_path(@tab), class: "btn btn-primary btn-lg card-rounded" %>
+  </div>
 </div>
