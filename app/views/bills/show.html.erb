@@ -1,15 +1,17 @@
 <div class="container">
-  <div class="row py-4">
-    <div class="col">
-      <h1>Order #<%= @bill.id %> <small><span class="badge badge-primary"></span></small></h1>
-      <ul class="list-unstyled">
-        <li><strong>ISSUED ON</strong> <%= @bill.created_at.to_date %></li>
-        <li><strong>tab</strong> <%= @bill.tab.table_number %></li>
-        <li><strong>TOTAL</strong> <%= display_price(@bill.amount) %></li>
-        </li>
-      </ul>
-      <p>Payment success!</strong></p>
-      <%= image_tag "happyqrcode.png" %>
+  <h1 class="tables text-start mb-0 fw-bold">Your receipt</h1>
+
+  <div id="d-wrapper" class="my-5">
+    <div class="zig-zag-bottom">
+      <div class="d-flex justify-content-between align-items-center py-3 mx-4 mb-4">
+        <h4 class="text-secondary">Order #<%= @bill.id %></h4>
+        <h5 class="text-secondary"><%= @bill.created_at.to_date %></h5>
+      </div>
+      <h2 class="text-center mb-4 text-primary">Payment success!</h2>
+      <h1><%= display_price(@bill.amount) %></h1>
     </div>
   </div>
+</div>
+<div class="container text-center">
+  <%= image_tag "happyqrcode.png" %>
 </div>

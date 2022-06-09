@@ -1,5 +1,6 @@
 class BillsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index,:show,:create]
+  skip_before_action :authenticate_user!, only: [:index, :show, :create, :create_split]
+
   def index
     @bills = Bill.all
   end
