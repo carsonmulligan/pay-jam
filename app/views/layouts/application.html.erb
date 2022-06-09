@@ -23,7 +23,9 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
+    <% unless current_page?(new_user_session_path) %>
+      <%= render 'shared/navbar' %>
+    <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
   </body>
