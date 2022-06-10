@@ -1,37 +1,43 @@
-<div class="container">
-  <div class="row justify-content-center">
-     <div class="col-12 col-sm-4">
-       <div class="row justify-content-sm-between">
-       <h1 class="logonav text-center">PayJam</h1>
-        <%= image_tag "logologin.png", class: "loginlogo center" %>
-         <p class="text-center">Login to make your checkouts easier.</p>
+<div class="container d-flex flex-column justify-content-between vh-100">
+  <div class="mt-5 pt-5">
+    <h1 class="logonav text-center">PayJam</h1>
+    <%= image_tag "logologin.png", class: "loginlogo center" %>
+    <p class="text-center">Login to make your checkouts easier.</p>
+  </div>
+
+  <div class="container mb-5">
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs mb-5">
+        <%= f.input :email,
+                    required: false,
+                    label: false,
+                    placeholder: 'Email',
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+        <%= f.input :password,
+                    required: false,
+                    label: false,
+                    placeholder: 'Password',
+                    input_html: { autocomplete: "current-password" } %>
+        <%# <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
 
-        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="form-inputs">
-            <%= f.input :email,
-                        required: false,
-                        label: false,
-                        placeholder: 'Email',
-                        autofocus: true,
-                        input_html: { autocomplete: "email" } %>
-            <%= f.input :password,
-                        required: false,
-                        label: false,
-                        placeholder: 'Password',
-                        input_html: { autocomplete: "current-password" } %>
-            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-          </div>
-
-          <div class="form-actions log-in">
-            <%= f.button :submit, "Log in", class: 'button btn-lg btn-primary' %>
-          </div>
-        <% end %>
+      <div class="form-actions log-in text-center mt-5">
+        <%= f.button :submit, "Log in", class: 'button btn-lg btn-primary btn-rounded px-5' %>
         <div class="password">
-          <h6>Forgot Password?</h6>
-          </div>
+          <h6 class="mt-5 text-muted">Forgot password?</h6>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
-        <%= render "devise/shared/links" %>
-     </div>
-   </div>
+  <div class="mb-4 mt-5 text-muted text-center">
+    Don't have an account? <strong><%= link_to "Register here.", new_user_registration_path %></strong>
+  </div>
+
+  <%# <div class="row justify-content-sm-between">
+  </div>
+
+
+  <%= render "devise/shared/links" %>
 </div>

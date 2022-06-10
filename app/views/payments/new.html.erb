@@ -1,8 +1,22 @@
 <!-- app/views/payments/new.html.erb -->
-<div class="container text-center ">
-  <h1 class="my-4">Checkout summary</h1>
-  <p>Payment of Table <strong><%= @bill.tab.table_number %></strong> for <strong><%= display_price(@bill.amount) %></strong></p>
-  <button id="pay" class="btn-rounded btn btn-dark btn small px-4 mt-4">Pay</button>
+<div class="container">
+  <h1 class="tables text-start mb-0 fw-bold">Payment summary</h1>
+  <hr class="my-3 mb-5">
+  <%# <h5 class="text-muted my-4">Your total: <%= display_price(@bill.amount) </h5> %>
+  <div class="d-flex justify-content-center mt-5">
+    <div class="text-center mt-5">
+      <div><h3>Your total</h3></div>
+      <span class="fw-bold" style="font-size: 40px;"><%= display_price(@bill.amount) %></span>
+    </div>
+  </div>
+</div>
+
+<div class="container mb-3 position-absolute bottom-0">
+  <div class="row justify-content-center mx-2 mt-5">
+    <button id="pay" class="btn btn-primary card-rounded px-4">
+      Continue to payment
+    </button>
+  </div>
 </div>
 
 <script src="https://js.stripe.com/v3/"></script>

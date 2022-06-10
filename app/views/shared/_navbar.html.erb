@@ -1,19 +1,18 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon text-white <%= "fixed-top" if current_page?(root_path) %>">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-
       <div style="display:inline-block;vertical-align:top;">
-         <%= image_tag "logologologo.png" %>
-
-          <div style="display:inline-block">
-              <h5 class="logonav">Pay Jam</h5>
-          </div>
+        <%= image_tag "logologologo.png" %>
+        <div style="display:inline-block; color: white">
+          <h5 class="logonav">Pay Jam</h5>
+        </div>
       </div>
+    <% end %>
+    <% if user_signed_in? %>
       <div>
-          <a href="/tabs" class="btn btn-outline-secondary" role="button" aria-pressed="true">Tabs</a>
-          <a href="#" class="btn btn-outline-secondary" role="button" aria-pressed="true">Account</a>
-          <% end %>
+        <%# <a href="/tabs" class="btn btn-outline-secondary" role="button" aria-pressed="true">Tabs</a>
+        <a href="#" class="btn btn-outline-secondary" role="button" aria-pressed="true">Account</a> %>
       </div>
-
-    </div>
+    <% end %>
+  </div>
 </div>

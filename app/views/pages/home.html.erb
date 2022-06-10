@@ -1,19 +1,25 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1600147131759-880e94a6185f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80);">
-  <div class="container banner-padding-text">
-    <h1 class="text-center">Your customers are looking for the fastest way to pay</h1>
-    <div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.2)), url(https://images.pexels.com/photos/2253643/pexels-photo-2253643.jpeg);">
+  <div class="container px-4 banner-content d-flex flex-column justify-content-between">
+      <h1 class="fw-bold">The fastest way to pay</h1>
+
+      <div class="text-center">
+        <%= link_to "Get Started", new_user_session_path, class: "button btn-lg btn-primary px-4 py-3 btn-rounded no-decoration" unless user_signed_in? %>
+        <%# <%= link_to "Log out", destroy_user_session_path, class: "button btn btn-lg btn-primary", method: :delete if user_signed_in? %>
+        <%= link_to "Go to tabs", tabs_path, class: "button btn btn-lg btn-primary px-4" if user_signed_in? %>
+      </div>
+    </div>
+
+    <%# <div>
       <ul>
         <li>turn more tables</li>
         <li>increase avg spend</li>
         <li>get more tips</li>
       </ul>
-    </div>
-      <div class="text-center mt-5">
-        <%= link_to "Get Started", new_user_session_path, class: "button btn-lg btn-primary" unless user_signed_in? %>
-        <%= link_to "Log out", destroy_user_session_path, class: "button btn btn-lg btn-primary", method: :delete if user_signed_in? %>
-      </div>
-        <div class="small-text">
-          <h3>Scan. Split. Tip. Pay.</h3></div>
+    </div> %>
 
+
+    <%# <div class="small-text">
+      <h3>Scan. Split. Tip. Pay.</h3>
+    </div> %>
   </div>
 </div>

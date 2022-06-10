@@ -22,10 +22,11 @@
 
   </head>
 
-  <body>
-    <%= render 'shared/navbar' %>
+  <body style="background: darkgrey;">
+    <% unless current_page?(new_user_session_path) %>
+      <%= render 'shared/navbar' %>
+    <% end %>
     <%= render 'shared/flashes' %>
-
     <%= yield %>
   </body>
 

@@ -17,31 +17,31 @@ ul{
   padding-top: 50px;
   padding-bottom: 80px;
 }
-
-
 .small-text{
   text-align: center;
   color: white;
   padding-top: 40px ;
 }
 
-
-
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 100px 0;
   height: 100vh;
-}
-
-.banner-padding-text {
-  padding: 0% 10%;
+  padding: 180px 0 0 0;
 }
 
 .banner h1 {
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 40px;
+  font-size: 60px;
   margin-bottom: 20px;
+}
+
+.banner-content {
+  height: 50%;
+}
+
+.no-decoration:hover {
+  text-decoration: none;
 }
