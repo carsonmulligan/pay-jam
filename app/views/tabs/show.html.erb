@@ -42,12 +42,12 @@
   <% end %>
 
   <!-- Payment buttons -->
-  <% unless user_signed_in? %>
+
     <!-- Pay all -->
     <%= form_tag bills_path do %>
       <%= hidden_field_tag 'tab_id', @tab.id %>
       <div class="row justify-content-center mx-2 mt-2">
-        <%= submit_tag 'Pay all', class: 'btn btn-primary btn-lg card-rounded' unless user_signed_in? %>
+        <%= submit_tag 'Pay all', class: 'btn btn-primary btn-lg card-rounded' %>
       </div>
     <% end %>
 
@@ -57,7 +57,7 @@
         Split the bill
       </button>
     </div>
-  <% end %>
+
 </div>
 
 <!-- Modal -->
