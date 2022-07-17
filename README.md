@@ -3,10 +3,11 @@
   <br>
   <br>
   PayJam
+  <a href="https://www.payjam.co/" target="_blank">PayJam</a>.</h4>
   <br>
 </h1>
 
-<h4 align="center">A minimal Markdown Editor desktop app built on top of <a href="https://www.payjam.co/" target="_blank">Electron</a>.</h4>
+<h4 align="center">A minimal Markdown Editor desktop app built on top of <a href="https://www.payjam.co/" target="_blank">PayJam</a>.</h4>
 
 
 <p align="center">
