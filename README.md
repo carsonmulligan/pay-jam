@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How To Use</a> •
+  <a href="#how-to-use">How To Use</a> 
 </p>
 
 
@@ -30,7 +30,7 @@ To use the interface, go to <a href="https://www.payjam.co/" target="_blank">Pay
 
 1. Sign in using:
 
-      Username: carlos.miguel@gmail.com
+      Username: carlos.miguel@gmail. com
       Password: 121212
 
 2. Select a table as the manager, select items for the table, and go to tabs. 
