@@ -2,12 +2,11 @@
 <h1 align="center">
   <br>
   <br>
-  PayJam
-  <a href="https://www.payjam.co/" target="_blank">PayJam</a>.</h4>
+  <a href="https://www.payjam.co/" target="_blank">PayJam</a></h4>
   <br>
 </h1>
 
-<h4 align="center">A minimal Markdown Editor desktop app built on top of <a href="https://www.payjam.co/" target="_blank">PayJam</a>.</h4>
+<h4 align="center">Splitting bills and replacing POS terminals. [Sign in to the website linked above with username: carlos.miguel@gmail.com pw: 121212]</h4>
 
 
 <p align="center">
