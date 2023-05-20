@@ -24,8 +24,6 @@
 
 ## How To Use
 
-Use the interface, or clone the repo:
-
 To use the interface, go to <a href="https://www.payjam.co/" target="_blank">PayJam</a>,</h4> and 
 
 1. Sign in using:
