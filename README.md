@@ -29,10 +29,7 @@
 
 To use the interface, go to <a href="https://www.payjam.co/" target="_blank">PayJam</a>,</h4> and 
 
-1. Sign in using:
-
-      Username: carlos.miguel@gmail. com
-      Password: 121212
+1. Sign in 
 
 2. Select a table as the manager, select items for the table, and go to tabs. 
 
